@@ -3,6 +3,8 @@ description: "a flutter package aims on reducing basic app dev procedures"
 # publish_to: 'none'
 version: 1.0.0+1
 
+homepage: https://github.com/Yunitrish006006/AppChiseletor/tree/main
+
 environment:
   sdk: ^3.7.0-209.1.beta
 dependencies:
