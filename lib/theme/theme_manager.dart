@@ -1,32 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'theme_data.dart';
+import 'theme_interface.dart'; // Import ThemeInterface
 
 class ThemeManager extends ChangeNotifier {
-  AppThemeData? _currentTheme;
-  List<String> availableThemes = ['default', 'gray']; // 新增可用主題列表
+  ThemeInterface? _currentTheme;
+  List<ThemeInterface> pluginThemes = [];
+  List<String> get availableThemes =>
+      ['default'] + pluginThemes.map((theme) => theme.name).toList();
 
-  AppThemeData? get currentTheme => _currentTheme;
+  ThemeInterface? get currentTheme => _currentTheme;
 
   Future<void> loadTheme(String themeName) async {
+    final pluginTheme = pluginThemes.firstWhere(
+      (theme) => theme.name == themeName,
+      orElse:
+          () => AppThemeData(
+            name: '',
+            lightTheme: ThemeData(),
+            darkTheme: ThemeData(),
+          ),
+    );
+
+    if (pluginTheme.name.isNotEmpty) {
+      _currentTheme = pluginTheme;
+      notifyListeners();
+      return;
+    }
+
     if (!availableThemes.contains(themeName)) {
       print('Theme $themeName not supported, loading default theme.');
       await loadDefaultTheme();
       return;
     }
-    try {
-      final fileContent = await rootBundle.loadString(
-        'assets/themes/$themeName.dart',
+
+    if (themeName == 'default') {
+      _currentTheme = AppThemeData(
+        name: 'Default Theme',
+        lightTheme: ThemeData.light(),
+        darkTheme: ThemeData.dark(),
       );
-      // Assuming the theme file exports a variable named 'theme' of type 'AppThemeData'
-      final theme = _parseThemeData(fileContent);
-      _currentTheme = theme;
-      notifyListeners();
-    } catch (e) {
-      print('Error loading theme $themeName: $e');
-      // Load a default theme if loading fails
-      await loadDefaultTheme();
     }
+    notifyListeners(); //  確保調用 notifyListeners()
   }
 
   Future<void> loadDefaultTheme() async {
@@ -47,31 +61,30 @@ class ThemeManager extends ChangeNotifier {
     return isDarkMode ? _currentTheme!.darkTheme : _currentTheme!.lightTheme;
   }
 
-  void toggleTheme(BuildContext context) {
+  void toggleBrightness(BuildContext context) {
+    //  重命名為 toggleBrightness
     if (_currentTheme == null) {
       loadDefaultTheme();
       return;
     }
     final currentTheme = _currentTheme!;
-    final isCurrentlyDark = currentTheme.lightTheme == ThemeData.dark();
+    final isCurrentlyDark =
+        Theme.of(context).brightness ==
+        Brightness.dark; //  使用 Theme.of(context).brightness
     _currentTheme = AppThemeData(
       name: currentTheme.name,
-      lightTheme: isCurrentlyDark ? ThemeData.light() : ThemeData.dark(),
-      darkTheme: isCurrentlyDark ? ThemeData.dark() : ThemeData.light(),
+      lightTheme:
+          isCurrentlyDark
+              ? currentTheme.lightTheme
+              : currentTheme.darkTheme, //  根據 isCurrentlyDark 調整
+      darkTheme:
+          isCurrentlyDark ? currentTheme.darkTheme : currentTheme.lightTheme,
     );
     notifyListeners();
   }
 
-  // Helper function to parse the Dart file content and extract the AppThemeData
-  AppThemeData _parseThemeData(String fileContent) {
-    // This is a placeholder and needs to be implemented properly
-    //  We might use 'eval' or a similar mechanism to execute the Dart code
-    //  and retrieve the 'theme' variable.
-    //  For now, we'll return a default theme.
-    return AppThemeData(
-      name: 'Parsed Theme',
-      lightTheme: ThemeData.light(),
-      darkTheme: ThemeData.dark(),
-    );
+  void registerPluginTheme(ThemeInterface pluginTheme) {
+    pluginThemes.add(pluginTheme);
+    notifyListeners();
   }
 }

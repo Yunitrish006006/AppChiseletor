@@ -3,10 +3,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'theme/theme_manager.dart'; // Import the ThemeManager class
-import 'widgets/theme_toggle_button.dart'; // Import the ThemeToggleButton widget
-import 'auth/auth_manager.dart'; // Import AuthenticationManager
-import 'widgets/auth_button.dart';
+import 'auth/auth_manager.dart';
 import 'firebase_options.dart';
+import 'plugins/my_custom_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +14,8 @@ void main() async {
   // Initialize ThemeManager with a default theme
   final themeManager = ThemeManager();
   await themeManager.loadTheme('default');
+
+  themeManager.registerPluginTheme(MyCustomTheme());
 
   runApp(
     MultiProvider(

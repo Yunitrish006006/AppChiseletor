@@ -21,21 +21,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
+    final theme = Theme.of(context); //  獲取當前主題
+
     return Scaffold(
       appBar: AppBar(
-        actions: const [ThemeToggleButton(), AuthButton()], // Add AuthButton
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        actions: const [ThemeToggleButton(), AuthButton()],
+        backgroundColor: theme.appBarTheme.backgroundColor, //  使用主題中的顏色
+        foregroundColor: theme.appBarTheme.foregroundColor,
         title: Text(widget.title),
       ),
+      backgroundColor: theme.scaffoldBackgroundColor, //  Scaffold 背景色
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            Text(
+              'You have pushed the button this many times:',
+              style: theme.textTheme.bodyLarge, //  使用主題中的文字樣式
+            ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: theme.textTheme.headlineMedium?.copyWith(
+                color: theme.primaryColor,
+              ), //  使用主題中的文字樣式，並覆蓋顏色
             ),
           ],
         ),
@@ -43,8 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
+        backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
+        foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

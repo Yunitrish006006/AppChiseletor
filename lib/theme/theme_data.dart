@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'theme_interface.dart'; // Import the ThemeInterface
 
-class AppThemeData {
+class AppThemeData implements ThemeInterface {
+  @override
   final ThemeData lightTheme;
+  @override
   final ThemeData darkTheme;
+  @override
   final String name;
 
   AppThemeData({
