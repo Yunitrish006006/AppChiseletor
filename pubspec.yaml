@@ -1,6 +1,6 @@
 name: app_chiseletor
 description: "a flutter package aims on reducing basic app dev procedures"
-publish_to: 'none'
+# publish_to: 'none'
 version: 1.0.0+1
 
 environment:
