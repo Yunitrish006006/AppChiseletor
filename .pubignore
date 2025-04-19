@@ -1,2 +1,4 @@
 #secret
 /android/app/google-services.json
+
+/build/
