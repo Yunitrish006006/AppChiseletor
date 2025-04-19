@@ -9,19 +9,28 @@ class ThemeToggleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeManager = Provider.of<ThemeManager>(context);
+    final currentThemeMode = themeManager.themeMode(context);
+    IconData icon;
+
+    switch (currentThemeMode) {
+      case ThemeMode.system:
+        icon = Icons.brightness_auto;
+        break;
+      case ThemeMode.light:
+        icon = Icons.light_mode;
+        break;
+      case ThemeMode.dark:
+        icon = Icons.dark_mode;
+        break;
+    }
+
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         IconButton(
-          icon: Icon(
-            Theme.of(context).brightness ==
-                    Brightness
-                        .light //  使用 Theme.of(context).brightness
-                ? Icons.light_mode
-                : Icons.dark_mode,
-          ),
+          icon: Icon(icon),
           onPressed: () {
-            themeManager.toggleBrightness(context); //  使用 toggleBrightness
+            themeManager.toggleThemeMode(context);
           },
         ),
         const ThemeSelectionButton(),

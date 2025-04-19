@@ -1,4 +1,5 @@
 import 'package:app_chiseletor/home_page.dart';
+import 'package:app_chiseletor/plugins/gray_theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ void main() async {
   await themeManager.loadTheme('default');
 
   themeManager.registerPluginTheme(MyCustomTheme());
+  themeManager.registerPluginTheme(GrayTheme());
 
   runApp(
     MultiProvider(
@@ -43,8 +45,10 @@ class _MyAppState extends State<MyApp> {
       builder: (context, themeManager, child) {
         return MaterialApp(
           title: 'Flutter Demo',
-          theme: themeManager.applyTheme(context),
-          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          theme: themeManager.lightTheme(context),
+          darkTheme: themeManager.darkTheme(context),
+          themeMode: themeManager.themeMode(context),
+          home: const MyHomePage(title: 'Home Page'),
         );
       },
     );

@@ -4,6 +4,7 @@ import 'theme_interface.dart'; // Import ThemeInterface
 
 class ThemeManager extends ChangeNotifier {
   ThemeInterface? _currentTheme;
+  ThemeMode? _themeMode = ThemeMode.system; // 設定初始值
   List<ThemeInterface> pluginThemes = [];
   List<String> get availableThemes =>
       ['default'] + pluginThemes.map((theme) => theme.name).toList();
@@ -28,7 +29,7 @@ class ThemeManager extends ChangeNotifier {
     }
 
     if (!availableThemes.contains(themeName)) {
-      print('Theme $themeName not supported, loading default theme.');
+      debugPrint('Theme $themeName not supported, loading default theme.');
       await loadDefaultTheme();
       return;
     }
@@ -40,7 +41,7 @@ class ThemeManager extends ChangeNotifier {
         darkTheme: ThemeData.dark(),
       );
     }
-    notifyListeners(); //  確保調用 notifyListeners()
+    notifyListeners();
   }
 
   Future<void> loadDefaultTheme() async {
@@ -52,34 +53,43 @@ class ThemeManager extends ChangeNotifier {
     notifyListeners();
   }
 
-  ThemeData applyTheme(BuildContext context) {
-    if (_currentTheme == null) {
-      loadDefaultTheme();
-      return ThemeData.light();
-    }
-    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
-    return isDarkMode ? _currentTheme!.darkTheme : _currentTheme!.lightTheme;
+  ThemeData darkTheme(BuildContext context) {
+    return _currentTheme?.darkTheme ?? ThemeData.dark();
   }
 
-  void toggleBrightness(BuildContext context) {
-    //  重命名為 toggleBrightness
-    if (_currentTheme == null) {
-      loadDefaultTheme();
-      return;
+  ThemeData lightTheme(BuildContext context) {
+    return _currentTheme?.lightTheme ?? ThemeData.light();
+  }
+
+  ThemeData getReverse(BuildContext context) {
+    if (themeMode(context) == ThemeMode.system) {
+      if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
+        return lightTheme(context);
+      } else {
+        return darkTheme(context);
+      }
+    } else {
+      if (themeMode(context) == ThemeMode.dark) {
+        return lightTheme(context);
+      } else {
+        return darkTheme(context);
+      }
     }
-    final currentTheme = _currentTheme!;
-    final isCurrentlyDark =
-        Theme.of(context).brightness ==
-        Brightness.dark; //  使用 Theme.of(context).brightness
-    _currentTheme = AppThemeData(
-      name: currentTheme.name,
-      lightTheme:
-          isCurrentlyDark
-              ? currentTheme.lightTheme
-              : currentTheme.darkTheme, //  根據 isCurrentlyDark 調整
-      darkTheme:
-          isCurrentlyDark ? currentTheme.darkTheme : currentTheme.lightTheme,
-    );
+  }
+
+  ThemeMode themeMode(BuildContext context) {
+    return _themeMode ?? ThemeMode.system;
+  }
+
+  void toggleThemeMode(BuildContext context) {
+    //  重命名
+    //thememode 在system,light,dark中切換
+    _themeMode =
+        _themeMode == ThemeMode.system
+            ? ThemeMode.light
+            : _themeMode == ThemeMode.light
+            ? ThemeMode.dark
+            : ThemeMode.system;
     notifyListeners();
   }
 
