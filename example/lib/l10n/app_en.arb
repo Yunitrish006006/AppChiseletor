@@ -1,0 +1,44 @@
+{
+  "@@locale": "en",
+  "appTitle": "Home",
+  "buttonPushCount": "You have pushed the button this many times:",
+  "increment": "Increment",
+  "login": "Login",
+  "logout": "Logout",
+  "email": "Email",
+  "password": "Password",
+  "loginWithEmail": "Login with Email",
+  "loginWithGoogle": "Login with Google",
+  "cancel": "Cancel",
+  
+  "emailEmpty": "Email cannot be empty",
+  "emailInvalid": "Please enter a valid email address",
+  "passwordEmpty": "Password cannot be empty",
+  "passwordTooShort": "Password must be at least 6 characters",
+  "loggingIn": "Logging in...",
+
+  "themeDefault": "Default Theme",
+  "@themeDefault": {
+    "description": "Name of the default theme"
+  },
+  "themeGray": "Gray Theme",
+  "@themeGray": {
+    "description": "Name of the gray theme"
+  },
+  "themeCustom": "Custom Theme",
+  "@themeCustom": {
+    "description": "Name of the custom theme"
+  },
+  "themeModeSystem": "System Theme",
+  "@themeModeSystem": {
+    "description": "System theme mode"
+  },
+  "themeModeLight": "Light Theme",
+  "@themeModeLight": {
+    "description": "Light theme mode"
+  },
+  "themeModeDark": "Dark Theme",
+  "@themeModeDark": {
+    "description": "Dark theme mode"
+  }
+}
