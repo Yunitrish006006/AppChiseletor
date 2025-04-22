@@ -5,43 +5,15 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
-class ThemedMaterialApp extends StatefulWidget {
+class ThemedMaterialApp extends StatelessWidget {
   final Widget home;
 
   const ThemedMaterialApp({super.key, required this.home});
 
   @override
-  State<ThemedMaterialApp> createState() => _ThemedMaterialAppState();
-}
-
-class _ThemedMaterialAppState extends State<ThemedMaterialApp> {
-  @override
-  void initState() {
-    super.initState();
-    Provider.of<ThemeManager>(
-      context,
-      listen: false,
-    ).addListener(_onThemeChanged);
-  }
-
-  @override
-  void dispose() {
-    Provider.of<ThemeManager>(
-      context,
-      listen: false,
-    ).removeListener(_onThemeChanged);
-    super.dispose();
-  }
-
-  void _onThemeChanged() {
-    setState(() {});
-  }
-
-  @override
   Widget build(BuildContext context) {
-    final themeManager = Provider.of<ThemeManager>(context);
-    return Consumer<LocaleProvider>(
-      builder: (context, localeProvider, child) {
+    return Consumer2<ThemeManager, LocaleProvider>(
+      builder: (context, themeManager, localeProvider, _) {
         return MaterialApp(
           title: 'Flutter App',
           theme: themeManager.lightTheme(context),
@@ -62,7 +34,7 @@ class _ThemedMaterialAppState extends State<ThemedMaterialApp> {
           ],
           locale: localeProvider.locale,
 
-          home: widget.home,
+          home: home,
         );
       },
     );
