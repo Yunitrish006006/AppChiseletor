@@ -37,7 +37,6 @@ dependencies:
   firebase_auth: ^4.15.3
   google_sign_in: ^6.1.6
   provider: ^6.1.1
-  flutter_gen: ^5.10.0
   
 
 dev_dependencies:
@@ -54,7 +53,7 @@ flutter:
 
 flutter_gen:
   output: lib/gen/
-  line_length: 80
+  line_length: 120
 
 flutter_intl:
   enabled: true
