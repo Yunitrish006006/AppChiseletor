@@ -14,4 +14,9 @@ class AppThemeData implements ThemeInterface {
     required this.darkTheme,
     required this.name,
   });
+
+  @override
+  String getLocalizedName(BuildContext context) {
+    throw UnimplementedError();
+  }
 }

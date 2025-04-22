@@ -1,9 +1,5 @@
 {
   "@@locale": "zh",
-  "helloWorld": "你好，世界！",
-  "@helloWorld": {
-    "description": "初学程序设计时的传统问候语"
-  },
   "appTitle": "首頁",
   "buttonPushCount": "你已經按了這個按鈕這麼多次：",
   "increment": "增加",
@@ -13,5 +9,36 @@
   "password": "密碼",
   "loginWithEmail": "使用電子郵件登入",
   "loginWithGoogle": "使用 Google 登入",
-  "cancel": "取消"
+  "cancel": "取消",
+
+  "emailEmpty": "電子郵件不能為空",
+  "emailInvalid": "請輸入有效的電子郵件地址",
+  "passwordEmpty": "密碼不能為空",
+  "passwordTooShort": "密碼長度至少需要6個字符",
+  "loggingIn": "登入中...",
+
+  "themeDefault": "预设主题",
+  "@themeDefault": {
+    "description": "预设主题的名称"
+  },
+  "themeGray": "灰色主题",
+  "@themeGray": {
+    "description": "灰色主题的名称"
+  },
+  "themeCustom": "自定义主题",
+  "@themeCustom": {
+    "description": "自定义主题的名称"
+  },
+  "themeModeSystem": "系统主题",
+  "@themeModeSystem": {
+    "description": "系统主题模式"
+  },
+  "themeModeLight": "浅色主题",
+  "@themeModeLight": {
+    "description": "浅色主题模式"
+  },
+  "themeModeDark": "深色主题",
+  "@themeModeDark": {
+    "description": "深色主题模式"
+  }
 }

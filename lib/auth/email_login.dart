@@ -1,5 +1,6 @@
 import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class EmailLoginBlock extends StatefulWidget {
   const EmailLoginBlock({
@@ -29,11 +30,12 @@ class _EmailLoginBlockState extends State<EmailLoginBlock> {
   }
 
   void validateEmail(String value) {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
       if (value.isEmpty) {
-        emailError = '電子郵件不能為空';
+        emailError = l10n.emailEmpty;
       } else if (!isValidEmail(value)) {
-        emailError = '請輸入有效的電子郵件地址';
+        emailError = l10n.emailInvalid;
       } else {
         emailError = null;
       }
@@ -41,11 +43,12 @@ class _EmailLoginBlockState extends State<EmailLoginBlock> {
   }
 
   void validatePassword(String value) {
+    final l10n = AppLocalizations.of(context)!;
     setState(() {
       if (value.isEmpty) {
-        passwordError = '密碼不能為空';
+        passwordError = l10n.passwordEmpty;
       } else if (value.length < 6) {
-        passwordError = '密碼長度至少需要6個字符';
+        passwordError = l10n.passwordTooShort;
       } else {
         passwordError = null;
       }
@@ -61,13 +64,15 @@ class _EmailLoginBlockState extends State<EmailLoginBlock> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         TextField(
           controller: emailController,
           decoration: InputDecoration(
-            labelText: '電子郵件',
+            labelText: l10n.email,
             errorText: emailError,
           ),
           onChanged: validateEmail,
@@ -79,7 +84,7 @@ class _EmailLoginBlockState extends State<EmailLoginBlock> {
         TextField(
           controller: passwordController,
           decoration: InputDecoration(
-            labelText: '密碼',
+            labelText: l10n.password,
             errorText: passwordError,
           ),
           obscureText: true,
@@ -108,6 +113,7 @@ class _EmailLoginBlockState extends State<EmailLoginBlock> {
                   try {
                     await widget.authManager
                         .signInWithEmailAndPassword(email, password);
+
                     if (mounted) {
                       Navigator.of(context).pop();
                     }
@@ -126,7 +132,7 @@ class _EmailLoginBlockState extends State<EmailLoginBlock> {
                     }
                   }
                 },
-          child: Text(isLoggingIn ? '登入中...' : '使用電子郵件登入'),
+          child: Text(isLoggingIn ? l10n.loggingIn : l10n.loginWithEmail),
         ),
       ],
     );

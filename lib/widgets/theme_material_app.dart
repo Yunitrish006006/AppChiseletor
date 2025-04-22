@@ -18,7 +18,6 @@ class _ThemedMaterialAppState extends State<ThemedMaterialApp> {
   @override
   void initState() {
     super.initState();
-    //  在 initState 中訂閱 ThemeManager 的變化
     Provider.of<ThemeManager>(
       context,
       listen: false,
@@ -27,7 +26,6 @@ class _ThemedMaterialAppState extends State<ThemedMaterialApp> {
 
   @override
   void dispose() {
-    //  在 dispose 中取消訂閱
     Provider.of<ThemeManager>(
       context,
       listen: false,
@@ -58,9 +56,9 @@ class _ThemedMaterialAppState extends State<ThemedMaterialApp> {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: const [
-            Locale('en'),
-            Locale('zh'),
-            Locale('zh', 'TW'),
+            Locale('zh', 'TW'), // 繁體中文優先
+            Locale('zh'), // 簡體中文
+            Locale('en'), // 英文
           ],
           locale: localeProvider.locale,
 

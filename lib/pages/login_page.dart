@@ -1,7 +1,10 @@
 import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/auth/google_login.dart';
+import 'package:app_chiseletor/widgets/language_toggle_button.dart';
+import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.authManager});
@@ -24,8 +27,20 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(
+        title: Text(l10n.login),
+        actions: const [
+          LanguageToggleButton(),
+          ThemeToggleButton(),
+        ],
+        backgroundColor: theme.appBarTheme.backgroundColor,
+        foregroundColor: theme.appBarTheme.foregroundColor,
+      ),
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Stack(
         children: [
           Container(

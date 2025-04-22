@@ -36,8 +36,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ThemeToggleButton(),
           AuthButton(),
         ],
-        backgroundColor: theme.appBarTheme.backgroundColor,
-        foregroundColor: theme.appBarTheme.foregroundColor,
       ),
       // Drawer 展示
       drawer: Drawer(

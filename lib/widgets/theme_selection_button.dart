@@ -26,10 +26,10 @@ class ThemeSelectionButton extends StatelessWidget {
           themeManager.loadTheme(themeName);
         },
         itemBuilder: (BuildContext context) {
-          return themeManager.availableThemes.map((String themeName) {
+          return themeManager.pluginThemes.map((theme) {
             return PopupMenuItem<String>(
-              value: themeName,
-              child: Text(themeName),
+              value: theme.name,
+              child: Text(theme.getLocalizedName(context)),
             );
           }).toList();
         },

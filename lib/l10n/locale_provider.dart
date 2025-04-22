@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class LocaleProvider extends ChangeNotifier {
-  Locale _locale = const Locale('en');
+  // 將預設語言改為繁體中文
+  Locale _locale = const Locale('zh', 'TW');
 
   Locale get locale => _locale;
 

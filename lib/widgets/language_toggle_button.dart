@@ -13,12 +13,25 @@ class LanguageToggleButton extends StatelessWidget {
 
         return PopupMenuButton<String>(
           icon: const Icon(Icons.language),
+          tooltip: '切換語言',
           onSelected: (String value) {
             if (value != currentLocale.toString()) {
-              final newLocale = Locale(
-                value == 'en' ? 'en' : 'zh',
-                value == 'zh_TW' ? 'TW' : '',
-              );
+              Locale newLocale;
+              switch (value) {
+                case 'zh':
+                  // 選擇"中文"時，使用繁體中文
+                  newLocale = const Locale('zh', 'TW');
+                  break;
+                case 'zh-CN':
+                  // 簡體中文選項
+                  newLocale = const Locale('zh');
+                  break;
+                case 'en':
+                  newLocale = const Locale('en');
+                  break;
+                default:
+                  newLocale = const Locale('zh', 'TW');
+              }
               localeProvider.setLocale(newLocale);
             }
           },
@@ -32,8 +45,8 @@ class LanguageToggleButton extends StatelessWidget {
               child: Text('中文'),
             ),
             const PopupMenuItem<String>(
-              value: 'zh_TW',
-              child: Text('繁體中文'),
+              value: 'zh-CN',
+              child: Text('简体中文'),
             ),
           ],
         );
