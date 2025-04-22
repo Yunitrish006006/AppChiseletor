@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:app_chiseletor/theme/theme_interface.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:app_chiseletor/l10n/app_localizations.dart';
 
 class GrayTheme implements ThemeInterface {
   @override

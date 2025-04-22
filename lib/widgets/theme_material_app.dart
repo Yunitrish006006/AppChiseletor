@@ -2,7 +2,7 @@ import 'package:app_chiseletor/l10n/locale_provider.dart';
 import 'package:app_chiseletor/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:app_chiseletor/l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 
 class ThemedMaterialApp extends StatelessWidget {

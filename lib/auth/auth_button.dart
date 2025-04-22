@@ -1,8 +1,8 @@
 import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/auth/google_login.dart';
+import 'package:app_chiseletor/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'auth_manager.dart';
 
 class AuthButton extends StatefulWidget {
