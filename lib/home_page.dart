@@ -1,6 +1,8 @@
 import 'package:app_chiseletor/auth/auth_button.dart';
+import 'package:app_chiseletor/widgets/language_toggle_button.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -21,36 +23,41 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context); //  獲取當前主題
+    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        actions: const [ThemeToggleButton(), AuthButton()],
-        backgroundColor: theme.appBarTheme.backgroundColor, //  使用主題中的顏色
+        actions: const [
+          LanguageToggleButton(),
+          ThemeToggleButton(),
+          AuthButton(),
+        ],
+        backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,
-        title: Text(widget.title),
+        title: Text(l10n.appTitle),
       ),
-      backgroundColor: theme.scaffoldBackgroundColor, //  Scaffold 背景色
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
-              style: theme.textTheme.bodyLarge, //  使用主題中的文字樣式
+              l10n.buttonPushCount,
+              style: theme.textTheme.bodyLarge,
             ),
             Text(
               '$_counter',
               style: theme.textTheme.headlineMedium?.copyWith(
                 color: theme.primaryColor,
-              ), //  使用主題中的文字樣式，並覆蓋顏色
+              ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        tooltip: l10n.increment,
         backgroundColor: theme.floatingActionButtonTheme.backgroundColor,
         foregroundColor: theme.floatingActionButtonTheme.foregroundColor,
         child: const Icon(Icons.add),

@@ -1,0 +1,17 @@
+{
+  "@@locale": "zh_TW",
+  "helloWorld": "哈囉世界！",
+  "@helloWorld": {
+    "description": "初學程式設計時的傳統問候語"
+  },
+  "appTitle": "首頁",
+  "buttonPushCount": "你已經按了這個按鈕這麼多次：",
+  "increment": "增加",
+  "login": "登入",
+  "logout": "登出",
+  "email": "電子郵件",
+  "password": "密碼",
+  "loginWithEmail": "使用電子郵件登入",
+  "loginWithGoogle": "使用 Google 登入",
+  "cancel": "取消"
+}

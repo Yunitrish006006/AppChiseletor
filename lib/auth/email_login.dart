@@ -1,8 +1,9 @@
 import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class EmailLoginBlock extends StatefulWidget {
-  const EmailLoginBlock({
+class EmailLoginBlock extends StatelessWidget {
+  EmailLoginBlock({
     super.key,
     required this.authManager,
     required this.onLoginStart,
@@ -12,69 +13,37 @@ class EmailLoginBlock extends StatefulWidget {
   final AuthenticationManager authManager;
   final VoidCallback onLoginStart;
   final VoidCallback onLoginEnd;
-
-  @override
-  State<EmailLoginBlock> createState() => _EmailLoginBlockState();
-}
-
-class _EmailLoginBlockState extends State<EmailLoginBlock> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  Future<void> _handleLogin() async {
-    widget.onLoginStart();
-    try {
-      final email = _emailController.text.trim();
-      final password = _passwordController.text;
-
-      if (email.isEmpty || password.isEmpty) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Please fill in all fields')),
-        );
-        return;
-      }
-
-      await widget.authManager.signInWithEmailAndPassword(email, password);
-    } finally {
-      widget.onLoginEnd();
-    }
-  }
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
-      mainAxisSize: MainAxisSize.min,
       children: [
         TextField(
-          controller: _emailController,
-          decoration: const InputDecoration(
-            labelText: 'Email',
-            border: OutlineInputBorder(),
-          ),
-          keyboardType: TextInputType.emailAddress,
+          controller: emailController,
+          decoration: InputDecoration(labelText: l10n.email),
         ),
-        const SizedBox(height: 16),
         TextField(
-          controller: _passwordController,
-          decoration: const InputDecoration(
-            labelText: 'Password',
-            border: OutlineInputBorder(),
-          ),
+          controller: passwordController,
+          decoration: InputDecoration(labelText: l10n.password),
           obscureText: true,
         ),
         const SizedBox(height: 16),
         ElevatedButton(
-          onPressed: _handleLogin,
-          child: const Text('Login with Email'),
+          onPressed: () async {
+            onLoginStart();
+            final email = emailController.text;
+            final password = passwordController.text;
+            await authManager.signInWithEmailAndPassword(email, password);
+            onLoginEnd();
+            if (context.mounted) Navigator.pop(context);
+          },
+          child: Text(l10n.loginWithEmail),
         ),
       ],
     );
-  }
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
   }
 }

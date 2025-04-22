@@ -2,6 +2,7 @@ import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/auth/google_login.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'auth_manager.dart';
 
 class AuthButton extends StatefulWidget {
@@ -16,21 +17,23 @@ class _AuthButtonState extends State<AuthButton> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Consumer<AuthenticationManager>(
       builder: (context, authManager, child) {
         return authManager.isLoggedIn
             ? ElevatedButton(
-              onPressed: () {
-                authManager.signOut();
-              },
-              child: const Text('Logout'),
-            )
+                onPressed: () {
+                  authManager.signOut();
+                },
+                child: Text(l10n.logout),
+              )
             : ElevatedButton(
-              onPressed: () {
-                _showLoginDialog(context, authManager);
-              },
-              child: const Text('Login'),
-            );
+                onPressed: () {
+                  _showLoginDialog(context, authManager);
+                },
+                child: Text(l10n.login),
+              );
       },
     );
   }
@@ -39,44 +42,43 @@ class _AuthButtonState extends State<AuthButton> {
     BuildContext context,
     AuthenticationManager authManager,
   ) {
+    final l10n = AppLocalizations.of(context)!;
+
     showDialog(
       context: context,
       builder: (context) {
         return StatefulBuilder(
           builder: (context, setState) {
             return AlertDialog(
-              title: const Text('Login'),
-              content:
-                  _isLoading
-                      ? const SizedBox(
-                        height: 100,
-                        child: Center(child: CircularProgressIndicator()),
-                      )
-                      : Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          EmailLoginBlock(
-                            authManager: authManager,
-                            onLoginStart:
-                                () => setState(() => _isLoading = true),
-                            onLoginEnd:
-                                () => setState(() => _isLoading = false),
-                          ),
-                          const SizedBox(height: 16),
-                          GoogleLoginBlock(
-                            authManager: authManager,
-                            onLoginStart:
-                                () => setState(() => _isLoading = true),
-                            onLoginEnd:
-                                () => setState(() => _isLoading = false),
-                          ),
-                        ],
+              title: Text(l10n.login),
+              content: _isLoading
+                  ? const SizedBox(
+                      height: 100,
+                      child: Center(
+                        child: CircularProgressIndicator(),
                       ),
+                    )
+                  : Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        EmailLoginBlock(
+                          authManager: authManager,
+                          onLoginStart: () => setState(() => _isLoading = true),
+                          onLoginEnd: () => setState(() => _isLoading = false),
+                        ),
+                        const SizedBox(height: 16),
+                        GoogleLoginBlock(
+                          authManager: authManager,
+                          onLoginStart: () => setState(() => _isLoading = true),
+                          onLoginEnd: () => setState(() => _isLoading = false),
+                        ),
+                      ],
+                    ),
               actions: [
                 if (!_isLoading)
                   TextButton(
                     onPressed: () => Navigator.pop(context),
-                    child: const Text('Cancel'),
+                    child: Text(l10n.cancel),
                   ),
               ],
             );

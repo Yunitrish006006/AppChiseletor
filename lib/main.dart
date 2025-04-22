@@ -1,6 +1,8 @@
 import 'package:app_chiseletor/home_page.dart';
+import 'package:app_chiseletor/l10n/locale_provider.dart';
 import 'package:app_chiseletor/plugins/gray_theme.dart';
 import 'package:app_chiseletor/widgets/auth_wrapper.dart';
+import 'package:app_chiseletor/widgets/theme_material_app.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,8 +24,13 @@ void main() async {
       providers: [
         ChangeNotifierProvider.value(value: themeManager),
         ChangeNotifierProvider(create: (_) => AuthenticationManager()),
+        ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: AuthWrapper(homepage: const MyHomePage(title: 'Home Page')),
+      child: ThemedMaterialApp(
+        home: AuthWrapper(
+          homepage: const MyHomePage(title: 'Home Page'),
+        ),
+      ),
     ),
   );
 }
