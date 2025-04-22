@@ -1,0 +1,2 @@
+D:/workspace/study/AppChiseletor/android/app/.cxx/Debug/6b671w4x/x86/CMakeFiles/edit_cache.dir
+D:/workspace/study/AppChiseletor/android/app/.cxx/Debug/6b671w4x/x86/CMakeFiles/rebuild_cache.dir

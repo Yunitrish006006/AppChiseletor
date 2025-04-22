@@ -4,7 +4,7 @@ import 'package:app_chiseletor/widgets/auth_wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'theme/theme_manager.dart'; // Import the ThemeManager class
+import 'theme/theme_manager.dart';
 import 'auth/auth_manager.dart';
 import 'plugins/my_custom_theme.dart';
 
