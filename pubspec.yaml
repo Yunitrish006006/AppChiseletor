@@ -1,6 +1,6 @@
 name: app_chiseletor
 description: A comprehensive Flutter framework that provides seamless integration of theme management, Firebase authentication (Email, Google Sign-in), and multilingual support (en, zh, zh_TW). Features include custom theme creation, dark mode support, and persistent authentication state.
-version: 1.1.0+2
+version: 1.1.1+3
 homepage: https://github.com/Yunitrish006006/AppChiseletor
 repository: https://github.com/Yunitrish006006/AppChiseletor
 documentation: https://github.com/Yunitrish006006/AppChiseletor/tree/main#readme
@@ -33,8 +33,8 @@ dependencies:
   nested: ^1.0.0
   
   cupertino_icons: ^1.0.2
-  firebase_core: ^2.24.2
-  firebase_auth: ^4.15.3
+  firebase_core: ^3.13.0
+  firebase_auth: ^5.5.2
   google_sign_in: ^6.1.6
   provider: ^6.1.1
   
@@ -42,7 +42,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
