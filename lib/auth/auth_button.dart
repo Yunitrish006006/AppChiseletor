@@ -12,6 +12,8 @@ class AuthButton extends StatefulWidget {
 }
 
 class _AuthButtonState extends State<AuthButton> {
+  bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthenticationManager>(
@@ -40,22 +42,45 @@ class _AuthButtonState extends State<AuthButton> {
     showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: const Text('Login'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              EmailLoginBlock(authManager: authManager),
-              const SizedBox(height: 16),
-              GoogleLoginBlock(authManager: authManager),
-            ],
-          ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text('Cancel'),
-            ),
-          ],
+        return StatefulBuilder(
+          builder: (context, setState) {
+            return AlertDialog(
+              title: const Text('Login'),
+              content:
+                  _isLoading
+                      ? const SizedBox(
+                        height: 100,
+                        child: Center(child: CircularProgressIndicator()),
+                      )
+                      : Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          EmailLoginBlock(
+                            authManager: authManager,
+                            onLoginStart:
+                                () => setState(() => _isLoading = true),
+                            onLoginEnd:
+                                () => setState(() => _isLoading = false),
+                          ),
+                          const SizedBox(height: 16),
+                          GoogleLoginBlock(
+                            authManager: authManager,
+                            onLoginStart:
+                                () => setState(() => _isLoading = true),
+                            onLoginEnd:
+                                () => setState(() => _isLoading = false),
+                          ),
+                        ],
+                      ),
+              actions: [
+                if (!_isLoading)
+                  TextButton(
+                    onPressed: () => Navigator.pop(context),
+                    child: const Text('Cancel'),
+                  ),
+              ],
+            );
+          },
         );
       },
     );

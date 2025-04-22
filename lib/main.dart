@@ -23,7 +23,6 @@ void main() async {
         ChangeNotifierProvider.value(value: themeManager),
         ChangeNotifierProvider(create: (_) => AuthenticationManager()),
       ],
-      //  直接使用 ThemedMaterialApp
       child: AuthWrapper(homepage: const MyHomePage(title: 'Home Page')),
     ),
   );
