@@ -2,3 +2,5 @@
 /android/app/google-services.json
 /lib/firebase_options.dart
 /build/
+/example\android\app\google-services.json
+/example\lib\firebase_options.dart
