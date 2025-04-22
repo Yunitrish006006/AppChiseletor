@@ -1,4 +1,4 @@
-import 'package:app_chiseletor/widgets/auth_button.dart';
+import 'package:app_chiseletor/auth/auth_button.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
 

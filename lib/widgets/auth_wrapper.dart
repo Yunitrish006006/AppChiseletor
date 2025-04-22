@@ -24,7 +24,6 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
   @override
   void dispose() {
-    // 在 dispose 中取消訂閱
     Provider.of<AuthenticationManager>(
       context,
       listen: false,
@@ -38,12 +37,13 @@ class _AuthWrapperState extends State<AuthWrapper> {
 
   @override
   Widget build(BuildContext context) {
-    final authManager = Provider.of<AuthenticationManager>(context);
+    final AuthenticationManager authManager =
+        Provider.of<AuthenticationManager>(context);
     return ThemedMaterialApp(
       home:
           authManager.isLoggedIn
               ? widget.homepage ?? Text("No Home Page Assigned")
-              : const LoginPage(),
+              : LoginPage(authManager: authManager),
     );
   }
 }
