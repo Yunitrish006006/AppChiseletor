@@ -2,6 +2,7 @@ import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/auth/google_login.dart';
 import 'package:app_chiseletor/widgets/language_toggle_button.dart';
+import 'package:app_chiseletor/widgets/theme_selection_button.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -36,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
         actions: const [
           LanguageToggleButton(),
           ThemeToggleButton(),
+          ThemeSelectionButton(),
         ],
         backgroundColor: theme.appBarTheme.backgroundColor,
         foregroundColor: theme.appBarTheme.foregroundColor,

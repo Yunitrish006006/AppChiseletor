@@ -1,5 +1,6 @@
 import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:app_chiseletor/theme/app_initializer.dart';
+import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/widgets/theme_material_app.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:app_chiseletor/widgets/theme_selection_button.dart';
@@ -50,6 +51,7 @@ class HomePage extends StatelessWidget {
         title: const Text('AppChiseletor Demo'),
         actions: const [
           ThemeToggleButton(),
+          ThemeSelectionButton(),
           LanguageToggleButton(),
         ],
       ),
@@ -95,7 +97,19 @@ class HomePage extends StatelessWidget {
                       ),
                     ] else ...[
                       ElevatedButton(
-                        onPressed: () => _showLoginDialog(context),
+                        onPressed: () => {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              title: const Text('請先登入'),
+                              content: EmailLoginBlock(
+                                authManager: authManager,
+                                onLoginStart: () => {},
+                                onLoginEnd: () => {},
+                              ),
+                            ),
+                          )
+                        },
                         child: const Text('登入'),
                       ),
                       const SizedBox(height: 8),
@@ -110,46 +124,6 @@ class HomePage extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-
-  void _showLoginDialog(BuildContext context) {
-    String email = '';
-    String password = '';
-
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('電子郵件登入'),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TextField(
-              decoration: const InputDecoration(labelText: '電子郵件'),
-              onChanged: (value) => email = value,
-            ),
-            TextField(
-              decoration: const InputDecoration(labelText: '密碼'),
-              obscureText: true,
-              onChanged: (value) => password = value,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: const Text('取消'),
-          ),
-          TextButton(
-            onPressed: () {
-              final authManager = context.read<AuthenticationManager>();
-              authManager.signInWithEmailAndPassword(email, password);
-              Navigator.pop(context);
-            },
-            child: const Text('登入'),
-          ),
-        ],
       ),
     );
   }

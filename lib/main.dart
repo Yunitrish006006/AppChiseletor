@@ -8,10 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'home_page.dart';
 
-// 全局錯誤處理
 void handleError(Object error, StackTrace stack) {
   debugPrint('ERROR: $error\nSTACK: $stack');
-  // 這裡可以添加錯誤報告服務，如 Sentry 或 Firebase Crashlytics
 }
 
 Future<void> main() async {
@@ -32,24 +30,12 @@ Future<void> main() async {
     MultiProvider(
       providers: providers,
       child: Builder(
-        builder: (context) => const MyApp(),
+        builder: (context) => const ThemedMaterialApp(
+          home: AuthWrapper(
+            homepage: MyHomePage(title: 'Flutter Demo', child: DemoContent()),
+          ),
+        ),
       ),
     ),
   );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const ThemedMaterialApp(
-      home: AuthWrapper(
-        homepage: MyHomePage(
-          title: 'Flutter Demo',
-          child: DemoContent(),
-        ),
-      ),
-    );
-  }
 }
