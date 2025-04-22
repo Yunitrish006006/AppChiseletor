@@ -6,8 +6,10 @@ class GrayTheme implements ThemeInterface {
   String get name => 'gray';
 
   @override
-  ThemeData get lightTheme =>
-      ThemeData(colorSchemeSeed: Colors.grey, brightness: Brightness.light);
+  ThemeData get lightTheme => ThemeData(
+    colorSchemeSeed: Colors.grey[700],
+    brightness: Brightness.light,
+  );
 
   @override
   ThemeData get darkTheme =>

@@ -1,5 +1,6 @@
 import 'package:app_chiseletor/home_page.dart';
 import 'package:app_chiseletor/plugins/gray_theme.dart';
+import 'package:app_chiseletor/widgets/auth_wrapper.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +11,7 @@ import 'plugins/my_custom_theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-
-  // Initialize ThemeManager with a default theme
+  await Firebase.initializeApp();
   final themeManager = ThemeManager();
   await themeManager.loadTheme('default');
 
@@ -23,34 +22,10 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: themeManager),
-        ChangeNotifierProvider(
-          create: (_) => AuthenticationManager(),
-        ), // Provide AuthenticationManager
+        ChangeNotifierProvider(create: (_) => AuthenticationManager()),
       ],
-      child: const MyApp(),
+      //  直接使用 ThemedMaterialApp
+      child: AuthWrapper(homepage: const MyHomePage(title: 'Home Page')),
     ),
   );
-}
-
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<ThemeManager>(
-      builder: (context, themeManager, child) {
-        return MaterialApp(
-          title: 'Flutter Demo',
-          theme: themeManager.lightTheme(context),
-          darkTheme: themeManager.darkTheme(context),
-          themeMode: themeManager.themeMode(context),
-          home: const MyHomePage(title: 'Home Page'),
-        );
-      },
-    );
-  }
 }

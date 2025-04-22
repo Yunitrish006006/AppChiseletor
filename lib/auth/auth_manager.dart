@@ -16,7 +16,7 @@ class AuthenticationManager extends ChangeNotifier {
       _isLoggedIn = true;
       notifyListeners();
     } on FirebaseAuthException catch (e) {
-      print('Email/Password sign-in failed: ${e.message}');
+      debugPrint('Email/Password sign-in failed: ${e.message}');
       // Handle error appropriately, e.g., show a snackbar
     }
   }

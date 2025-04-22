@@ -1,4 +1,4 @@
-package com.example.myapp
+package com.example.extendable_aiot
 
 import io.flutter.embedding.android.FlutterActivity
 

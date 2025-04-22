@@ -1,71 +1,49 @@
 {
   "project_info": {
-    "project_number": "683044546421",
-    "project_id": "general-app-service",
-    "storage_bucket": "general-app-service.firebasestorage.app"
+    "project_number": "10965259978",
+    "project_id": "extendableaiot",
+    "storage_bucket": "extendableaiot.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:683044546421:android:f20a9496bdf366f05e553c",
+        "mobilesdk_app_id": "1:10965259978:android:00b82f9a141b9bdfc50633",
         "android_client_info": {
-          "package_name": "com.example.myapp"
+          "package_name": "com.example.extendable_aiot"
         }
       },
       "oauth_client": [
         {
-          "client_id": "683044546421-eik7kdfrerbvai6qri496pb7k73u2re8.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyCKI1fHr7YdIKtV4LPnX1cMSsAOAeNPsNM"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "683044546421-eik7kdfrerbvai6qri496pb7k73u2re8.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:683044546421:android:76a5d9a87dfee8945e553c",
-        "android_client_info": {
-          "package_name": "net.vicky_yunitrish_studio.account_app_template"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "683044546421-dk9gbbkimf08fk8jq0ulf6b8s70vvmsg.apps.googleusercontent.com",
+          "client_id": "10965259978-3ajqdcs1f3n1q7h9i0doql11b4g036r5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "net.vicky_yunitrish_studio.account_app_template",
-            "certificate_hash": "f9515f321d6f2b1ccf5f32fd4573b798ed15f4e2"
+            "package_name": "com.example.extendable_aiot",
+            "certificate_hash": "97b158f71d059074aebb2e1bc144a1562dc8b9d5"
           }
         },
         {
-          "client_id": "683044546421-eik7kdfrerbvai6qri496pb7k73u2re8.apps.googleusercontent.com",
+          "client_id": "10965259978-10chb3hlhufpe4t157hgofj876ojc26n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCKI1fHr7YdIKtV4LPnX1cMSsAOAeNPsNM"
+          "current_key": "AIzaSyD_ZKNdEIHlWUaWIG1rX41YZPEtiQuFplM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "683044546421-eik7kdfrerbvai6qri496pb7k73u2re8.apps.googleusercontent.com",
+              "client_id": "10965259978-10chb3hlhufpe4t157hgofj876ojc26n.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "10965259978-6sh1218tet9ol1pr87m0p0akdq65a552.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.extendableAiot"
+              }
             }
           ]
         }
