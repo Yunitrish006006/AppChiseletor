@@ -7,8 +7,9 @@ import 'package:provider/provider.dart';
 
 class ThemedMaterialApp extends StatelessWidget {
   final Widget home;
+  final localization;
 
-  const ThemedMaterialApp({super.key, required this.home});
+  const ThemedMaterialApp({super.key, required this.home, this.localization});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,8 @@ class ThemedMaterialApp extends StatelessWidget {
           themeMode: themeManager.themeMode(context),
 
           // 多國語言支援
-          localizationsDelegates: const [
+          localizationsDelegates: [
+            localization,
             AppLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
             GlobalWidgetsLocalizations.delegate,
