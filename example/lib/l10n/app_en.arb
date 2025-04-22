@@ -29,6 +29,10 @@
   "@themeCustom": {
     "description": "Name of the custom theme"
   },
+  "themeBlue": "Blue Theme",
+  "@themeBlue": {
+    "description": "Name of the blue theme"
+  },
   "themeModeSystem": "System Theme",
   "@themeModeSystem": {
     "description": "System theme mode"

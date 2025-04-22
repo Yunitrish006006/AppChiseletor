@@ -22,5 +22,9 @@
   "themeCustom": "自定義主題",
   "themeModeSystem": "系統主題",
   "themeModeLight": "淺色主題",
-  "themeModeDark": "深色主題"
+  "themeModeDark": "深色主題",
+  "themeBlue": "藍色主題",
+  "@themeBlue": {
+    "description": "Name of the blue theme"
+  }
 }

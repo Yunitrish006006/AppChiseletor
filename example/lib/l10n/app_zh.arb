@@ -20,6 +20,10 @@
   "themeDefault": "默认主题",
   "themeGray": "灰色主题",
   "themeCustom": "自定义主题",
+  "themeBlue": "蓝色主题",
+  "@themeBlue": {
+    "description": "Name of the blue theme"
+  },
   "themeModeSystem": "系统主题",
   "themeModeLight": "浅色主题",
   "themeModeDark": "深色主题"

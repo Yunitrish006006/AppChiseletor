@@ -5,6 +5,7 @@ import 'package:app_chiseletor/widgets/theme_material_app.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:app_chiseletor/widgets/theme_selection_button.dart';
 import 'package:app_chiseletor_example/themes/my_custom_theme.dart';
+import 'package:app_chiseletor_example/themes/blue_theme.dart'; // 引入新的藍色主題
 import 'package:app_chiseletor/widgets/language_toggle_button.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -14,10 +15,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  // 初始化應用程式並獲取 providers
+  // 初始化應用程式並獲取 providers，註冊多個主題
   final providers = await AppInitializer.initialize(
     defaultLocale: const Locale('zh', 'TW'),
-    customThemes: [MyCustomTheme()],
+    customThemes: [
+      MyCustomTheme(),
+      BlueTheme(), // 添加藍色主題
+    ],
   );
 
   runApp(

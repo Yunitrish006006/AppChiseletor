@@ -102,6 +102,160 @@ final localeProvider = context.read<LocaleProvider>();
 localeProvider.setLocale(const Locale('en'));  // 切換到英文
 ```
 
+## 自定義主題指南
+
+### 1. 創建自定義主題類別
+
+創建一個新的 Dart 類別並實現 `ThemeInterface`：
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:app_chiseletor/theme/theme_interface.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+class BlueTheme implements ThemeInterface {
+  @override
+  String get name => 'blue';  // 主題的唯一識別碼
+
+  @override
+  String getLocalizedName(BuildContext context) {
+    return AppLocalizations.of(context)!.themeBlue;  // 使用本地化字串
+  }
+
+  @override
+  ThemeData get lightTheme => ThemeData(
+    // 淺色主題配置
+    primarySwatch: Colors.blue,
+    brightness: Brightness.light,
+    // ... 其他主題設定
+  );
+
+  @override
+  ThemeData get darkTheme => ThemeData(
+    // 深色主題配置
+    primarySwatch: Colors.blue,
+    brightness: Brightness.dark,
+    // ... 其他主題設定
+  );
+}
+```
+
+### 2. 添加本地化字串
+
+在 `lib/l10n/` 目錄下的各語言檔案中添加主題名稱翻譯：
+
+**app_en.arb** (英文)：
+```json
+{
+  "themeBlue": "Blue Theme",
+  "@themeBlue": {
+    "description": "Name of the blue theme"
+  }
+}
+```
+
+**app_zh.arb** (簡體中文)：
+```json
+{
+  "themeBlue": "蓝色主题"
+}
+```
+
+**app_zh_TW.arb** (繁體中文)：
+```json
+{
+  "themeBlue": "藍色主題"
+}
+```
+
+### 3. 生成本地化檔案
+
+運行以下命令生成本地化支援檔案：
+```bash
+flutter gen-l10n
+```
+
+### 4. 註冊主題
+
+在應用程式的 `main()` 函數中註冊你的自定義主題：
+
+```dart
+void main() async {
+  final providers = await AppInitializer.initialize(
+    customThemes: [
+      MyCustomTheme(),  // 你的自定義主題
+      BlueTheme(),      // 新添加的藍色主題
+    ],
+    defaultLocale: const Locale('zh', 'TW'),
+  );
+
+  runApp(
+    MultiProvider(
+      providers: providers,
+      child: const MyApp(),
+    ),
+  );
+}
+```
+
+### 自定義主題細節
+
+你可以自定義主題的多個方面：
+
+1. **基本顏色**
+```dart
+ThemeData(
+  primarySwatch: Colors.blue,    // 主色調
+  primaryColor: Colors.blue,     // 主要顏色
+  canvasColor: Colors.white,     // 畫布顏色
+  scaffoldBackgroundColor: Colors.blue[50],  // 背景顏色
+)
+```
+
+2. **AppBar 樣式**
+```dart
+appBarTheme: const AppBarTheme(
+  color: Colors.blue,
+  foregroundColor: Colors.white,
+)
+```
+
+3. **按鈕樣式**
+```dart
+buttonTheme: const ButtonTheme(
+  buttonColor: Colors.blue,
+  textTheme: ButtonTextTheme.primary,
+)
+```
+
+4. **文字樣式**
+```dart
+textTheme: const TextTheme(
+  bodyLarge: TextStyle(color: Colors.black87),
+  bodyMedium: TextStyle(color: Colors.black54),
+)
+```
+
+### 使用主題
+
+一旦註冊了自定義主題，用戶可以通過內建的主題選擇按鈕來切換主題：
+
+```dart
+AppBar(
+  actions: [
+    ThemeToggleButton(),      // 明暗模式切換
+    ThemeSelectionButton(),   // 主題選擇
+    LanguageToggleButton(),   // 語言切換
+  ],
+)
+```
+
+系統會自動處理：
+- 主題切換和狀態保持
+- 明暗模式切換
+- 系統主題跟隨
+- 動態 UI 更新
+
 ## 必要依賴
 
 請確保你的專案 `pubspec.yaml` 包含以下依賴：
