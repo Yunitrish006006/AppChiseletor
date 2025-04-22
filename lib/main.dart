@@ -13,6 +13,7 @@ import 'plugins/my_custom_theme.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   final themeManager = ThemeManager();
   await themeManager.loadTheme('default');
 
@@ -26,11 +27,20 @@ void main() async {
         ChangeNotifierProvider(create: (_) => AuthenticationManager()),
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],
-      child: ThemedMaterialApp(
-        home: AuthWrapper(
-          homepage: const MyHomePage(title: 'Home Page'),
-        ),
-      ),
+      child: const MyApp(),
     ),
   );
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ThemedMaterialApp(
+      home: AuthWrapper(
+        homepage: const MyHomePage(title: 'Home Page'),
+      ),
+    );
+  }
 }
