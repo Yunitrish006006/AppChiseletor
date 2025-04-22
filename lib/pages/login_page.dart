@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           if (_isLoading)
             Container(
-              color: Colors.black.withOpacity(0.3),
+              color: Colors.black.withAlpha(128),
               child: const Center(child: CircularProgressIndicator()),
             ),
         ],
