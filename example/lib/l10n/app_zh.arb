@@ -1,30 +1,4 @@
 {
   "@@locale": "zh",
-  "appTitle": "首页",
-  "buttonPushCount": "您已经按了这个按钮这么多次：",
-  "increment": "增加",
-  "login": "登录",
-  "logout": "登出",
-  "email": "电子邮件",
-  "password": "密码",
-  "loginWithEmail": "使用电子邮件登录",
-  "loginWithGoogle": "使用 Google 帐号登录",
-  "cancel": "取消",
-  
-  "emailEmpty": "电子邮件不能为空",
-  "emailInvalid": "请输入有效的电子邮件地址",
-  "passwordEmpty": "密码不能为空",
-  "passwordTooShort": "密码必须至少 6 个字符",
-  "loggingIn": "登录中...",
-
-  "themeDefault": "默认主题",
-  "themeGray": "灰色主题",
-  "themeCustom": "自定义主题",
-  "themeBlue": "蓝色主题",
-  "@themeBlue": {
-    "description": "Name of the blue theme"
-  },
-  "themeModeSystem": "系统主题",
-  "themeModeLight": "浅色主题",
-  "themeModeDark": "深色主题"
+  "themeBlue": "藍色主題"
 }

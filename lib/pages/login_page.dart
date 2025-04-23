@@ -1,11 +1,11 @@
 import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/auth/google_login.dart';
+import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart' as al;
 import 'package:app_chiseletor/widgets/language_toggle_button.dart';
 import 'package:app_chiseletor/widgets/theme_selection_button.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
-import 'package:app_chiseletor/l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.authManager});
@@ -13,6 +13,17 @@ class LoginPage extends StatefulWidget {
 
   @override
   State<LoginPage> createState() => _LoginPageState();
+}
+
+Widget loadingIndicator() {
+  return const Center(
+    child: CircularProgressIndicator(
+      backgroundColor: Colors.blueGrey,
+      color: Colors.blue,
+      strokeWidth: 12,
+      trackGap: 27,
+    ),
+  );
 }
 
 class _LoginPageState extends State<LoginPage> {
@@ -28,8 +39,13 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+    final l10n = al.AppLocalizations.of(context);
     final theme = Theme.of(context);
+
+    if (l10n == null) {
+      return Container(
+          color: theme.scaffoldBackgroundColor, child: loadingIndicator());
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -67,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
           if (_isLoading)
             Container(
               color: Colors.black.withAlpha(128),
-              child: const Center(child: CircularProgressIndicator()),
+              child: loadingIndicator(),
             ),
         ],
       ),

@@ -1,6 +1,6 @@
+import 'package:app_chiseletor_example/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:app_chiseletor/theme/theme_interface.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class MyCustomTheme implements ThemeInterface {
   @override
@@ -8,7 +8,7 @@ class MyCustomTheme implements ThemeInterface {
 
   @override
   String getLocalizedName(BuildContext context) {
-    return AppLocalizations.of(context)!.themeCustom;
+    return AppLocalizations.of(context)!.themeBlue;
   }
 
   @override

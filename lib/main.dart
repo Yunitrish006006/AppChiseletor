@@ -31,8 +31,10 @@ Future<void> main() async {
       providers: providers,
       child: Builder(
         builder: (context) => const ThemedMaterialApp(
-          home: AuthWrapper(
-            homepage: MyHomePage(title: 'Flutter Demo', child: DemoContent()),
+          materialApp: MaterialApp(
+            home: AuthWrapper(
+              homepage: MyHomePage(title: 'Flutter Demo', child: DemoContent()),
+            ),
           ),
         ),
       ),

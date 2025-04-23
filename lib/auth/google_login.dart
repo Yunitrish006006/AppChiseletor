@@ -1,6 +1,6 @@
 import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:app_chiseletor/l10n/app_localizations.dart';
+import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart';
 
 class GoogleLoginBlock extends StatefulWidget {
   const GoogleLoginBlock({
