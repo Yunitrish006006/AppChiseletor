@@ -1,4 +1,68 @@
 {
   "@@locale": "zh",
-  "themeBlue": "藍色主題"
+  "appTitle": "AppChiseletor 演示",
+  "drawerHeader": "抽屉标题",
+  "home": "首页",
+  "settings": "设置",
+  "counter": "计数器：{count}",
+  "@counter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "increment": "增加",
+  "toggleVisibility": "切换可见性",
+  "hiddenContent": "此内容可以隐藏",
+  "enterName": "输入您的姓名",
+  "pleaseEnterText": "请输入文本",
+  "submit": "提交",
+  "hello": "您好 {name}！",
+  "@hello": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "listItem": "项目 {number}",
+  "@listItem": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "listItemDescription": "项目 {number} 的说明",
+  "@listItemDescription": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tappedItem": "您点击了项目 {number}",
+  "@tappedItem": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "themeDemo": "主题演示",
+  "authStatus": "认证状态",
+  "loggedInAs": "已登录为：{email}",
+  "@loggedInAs": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "登出",
+  "login": "登录",
+  "loginFirst": "请先登录",
+  "loginWithGoogle": "使用谷歌账号登录",
+  "themeBlue": "蓝色主题"
 }

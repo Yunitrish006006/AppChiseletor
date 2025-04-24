@@ -1,9 +1,68 @@
 {
   "@@locale": "zh_TW",
-  "themeBlue": "藍色主題",
+  "appTitle": "AppChiseletor 示範",
+  "drawerHeader": "抽屜標題",
+  "home": "首頁",
+  "settings": "設定",
+  "counter": "計數器：{count}",
+  "@counter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "increment": "增加",
+  "toggleVisibility": "切換可見性",
+  "hiddenContent": "此內容可以隱藏",
+  "enterName": "輸入您的姓名",
+  "pleaseEnterText": "請輸入文字",
+  "submit": "提交",
+  "hello": "您好 {name}！",
+  "@hello": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "listItem": "項目 {number}",
+  "@listItem": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "listItemDescription": "項目 {number} 的說明",
+  "@listItemDescription": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tappedItem": "您點擊了項目 {number}",
+  "@tappedItem": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "themeDemo": "主題示範",
+  "authStatus": "驗證狀態",
+  "loggedInAs": "已登入為：{email}",
+  "@loggedInAs": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "登出",
   "login": "登入",
-  "email": "電子郵件",
-  "password": "密碼",
-  "signIn": "登入",
-  "signInWithGoogle": "使用 Google 帳號登入"
+  "loginFirst": "請先登入",
+  "loginWithGoogle": "使用 Google 帳號登入",
+  "themeBlue": "藍色主題"
 }

@@ -1,7 +1,68 @@
 {
   "@@locale": "en",
-  "themeBlue": "Blue Theme",
-  "@themeBlue": {
-    "description": "Name of the blue theme"
-  }
+  "appTitle": "AppChiseletor Demo",
+  "drawerHeader": "Drawer Header",
+  "home": "Home",
+  "settings": "Settings",
+  "counter": "Counter: {count}",
+  "@counter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "increment": "Increment",
+  "toggleVisibility": "Toggle Visibility",
+  "hiddenContent": "This content can be hidden",
+  "enterName": "Enter your name",
+  "pleaseEnterText": "Please enter some text",
+  "submit": "Submit",
+  "hello": "Hello {name}!",
+  "@hello": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "listItem": "Item {number}",
+  "@listItem": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "listItemDescription": "Description for item {number}",
+  "@listItemDescription": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "tappedItem": "You tapped item {number}",
+  "@tappedItem": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "themeDemo": "Theme Demo",
+  "authStatus": "Authentication Status",
+  "loggedInAs": "Logged in as: {email}",
+  "@loggedInAs": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Logout",
+  "login": "Login",
+  "loginFirst": "Please login first",
+  "loginWithGoogle": "Login with Google",
+  "themeBlue": "Blue Theme"
 }

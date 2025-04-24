@@ -96,7 +96,139 @@ abstract class AppLocalizations {
     Locale('zh', 'TW')
   ];
 
-  /// Name of the blue theme
+  /// No description provided for @appTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'AppChiseletor Demo'**
+  String get appTitle;
+
+  /// No description provided for @drawerHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'Drawer Header'**
+  String get drawerHeader;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @settings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settings;
+
+  /// No description provided for @counter.
+  ///
+  /// In en, this message translates to:
+  /// **'Counter: {count}'**
+  String counter(int count);
+
+  /// No description provided for @increment.
+  ///
+  /// In en, this message translates to:
+  /// **'Increment'**
+  String get increment;
+
+  /// No description provided for @toggleVisibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Toggle Visibility'**
+  String get toggleVisibility;
+
+  /// No description provided for @hiddenContent.
+  ///
+  /// In en, this message translates to:
+  /// **'This content can be hidden'**
+  String get hiddenContent;
+
+  /// No description provided for @enterName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get enterName;
+
+  /// No description provided for @pleaseEnterText.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter some text'**
+  String get pleaseEnterText;
+
+  /// No description provided for @submit.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get submit;
+
+  /// No description provided for @hello.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello {name}!'**
+  String hello(String name);
+
+  /// No description provided for @listItem.
+  ///
+  /// In en, this message translates to:
+  /// **'Item {number}'**
+  String listItem(int number);
+
+  /// No description provided for @listItemDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Description for item {number}'**
+  String listItemDescription(int number);
+
+  /// No description provided for @tappedItem.
+  ///
+  /// In en, this message translates to:
+  /// **'You tapped item {number}'**
+  String tappedItem(int number);
+
+  /// No description provided for @themeDemo.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme Demo'**
+  String get themeDemo;
+
+  /// No description provided for @authStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Authentication Status'**
+  String get authStatus;
+
+  /// No description provided for @loggedInAs.
+  ///
+  /// In en, this message translates to:
+  /// **'Logged in as: {email}'**
+  String loggedInAs(String email);
+
+  /// No description provided for @logout.
+  ///
+  /// In en, this message translates to:
+  /// **'Logout'**
+  String get logout;
+
+  /// No description provided for @login.
+  ///
+  /// In en, this message translates to:
+  /// **'Login'**
+  String get login;
+
+  /// No description provided for @loginFirst.
+  ///
+  /// In en, this message translates to:
+  /// **'Please login first'**
+  String get loginFirst;
+
+  /// No description provided for @loginWithGoogle.
+  ///
+  /// In en, this message translates to:
+  /// **'Login with Google'**
+  String get loginWithGoogle;
+
+  /// No description provided for @themeBlue.
   ///
   /// In en, this message translates to:
   /// **'Blue Theme'**

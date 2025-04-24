@@ -1,8 +1,7 @@
 import 'package:app_chiseletor/auth/auth_wrapper.dart';
 import 'package:app_chiseletor/theme/app_initializer.dart';
 import 'package:app_chiseletor/widgets/theme_material_app.dart';
-import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart'
-    as app_localizations_app;
+import 'package:app_chiseletor_example/pages/homepage.dart';
 import '../l10n/app_localizations.dart';
 import 'package:app_chiseletor_example/pages/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +10,15 @@ import 'package:provider/provider.dart';
 import '../themes/my_custom_theme.dart';
 import '../themes/blue_theme.dart';
 
+void handleError(Object error, StackTrace stack) {
+  debugPrint('ERROR: $error\nSTACK: $stack');
+}
+
 void main() async {
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+    handleError(details.exception, details.stack ?? StackTrace.empty);
+  };
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   final providers = await AppInitializer.initialize(
@@ -26,15 +33,12 @@ void main() async {
     MultiProvider(
       providers: providers,
       child: Builder(
-        builder: (context) => ThemedMaterialApp(
+        builder: (context) => const ThemedMaterialApp(
           materialApp: MaterialApp(
-            home: const AuthWrapper(
-              homepage: MyHomePage(title: 'Flutter Demo', child: DemoContent()),
+            home: AuthWrapper(
+              homepage: HomePage(child: DemoContent()),
             ),
-            localizationsDelegates: [
-              ...AppLocalizations.localizationsDelegates,
-              app_localizations_app.AppLocalizations.delegate,
-            ],
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
           ),
         ),
