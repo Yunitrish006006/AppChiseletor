@@ -3,8 +3,10 @@ import 'package:app_chiseletor/plugins/my_custom_theme.dart';
 import 'package:app_chiseletor/theme/app_initializer.dart';
 import 'package:app_chiseletor/auth/auth_wrapper.dart';
 import 'package:app_chiseletor/widgets/theme_material_app.dart';
+import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'home_page.dart';
 
@@ -30,11 +32,13 @@ Future<void> main() async {
     MultiProvider(
       providers: providers,
       child: Builder(
-        builder: (context) => const ThemedMaterialApp(
+        builder: (context) => ThemedMaterialApp(
           materialApp: MaterialApp(
-            home: AuthWrapper(
+            home: const AuthWrapper(
               homepage: MyHomePage(title: 'Flutter Demo', child: DemoContent()),
             ),
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
           ),
         ),
       ),

@@ -14,14 +14,13 @@ class ThemedMaterialApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer2<ThemeManager, LocaleProvider>(
       builder: (context, themeManager, localeProvider, _) {
-        final delegates =
-            List.from(materialApp.localizationsDelegates?.toList() ??
-                [
-                  AppLocalizations.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-                ]);
+        final delegates = <LocalizationsDelegate<dynamic>>[
+          ...?materialApp.localizationsDelegates,
+          AppLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ];
 
         debugPrint('=================== Delegates Debug ===================');
         debugPrint(
@@ -31,6 +30,7 @@ class ThemedMaterialApp extends StatelessWidget {
           debugPrint('  - ${delegate.runtimeType}');
         }
         debugPrint('===================================================');
+
         return MaterialApp(
           key: materialApp.key,
           navigatorKey: materialApp.navigatorKey,
@@ -42,21 +42,9 @@ class ThemedMaterialApp extends StatelessWidget {
           onUnknownRoute: materialApp.onUnknownRoute,
           navigatorObservers: materialApp.navigatorObservers ?? [],
           title: materialApp.title ?? 'Flutter App',
-          // 多國語言支援
-          localizationsDelegates:
-              List.from(materialApp.localizationsDelegates?.toList() ??
-                  [
-                    AppLocalizations.delegate,
-                    GlobalMaterialLocalizations.delegate,
-                    GlobalWidgetsLocalizations.delegate,
-                    GlobalCupertinoLocalizations.delegate,
-                  ]),
+          localizationsDelegates: delegates,
           supportedLocales: materialApp.supportedLocales.isEmpty
-              ? [
-                  const Locale('zh', 'TW'),
-                  const Locale('zh'),
-                  const Locale('en'),
-                ]
+              ? AppLocalizations.supportedLocales
               : materialApp.supportedLocales,
           locale: localeProvider.locale,
           theme: themeManager.lightTheme(context),
