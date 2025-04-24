@@ -26,15 +26,16 @@ void main() async {
     MultiProvider(
       providers: providers,
       child: Builder(
-        builder: (context) => const ThemedMaterialApp(
+        builder: (context) => ThemedMaterialApp(
           materialApp: MaterialApp(
-            home: AuthWrapper(
+            home: const AuthWrapper(
               homepage: MyHomePage(title: 'Flutter Demo', child: DemoContent()),
             ),
             localizationsDelegates: [
-              AppLocalizations.delegate,
-              app_localizations_app.AppLocalizations.delegate
+              ...AppLocalizations.localizationsDelegates,
+              app_localizations_app.AppLocalizations.delegate,
             ],
+            supportedLocales: AppLocalizations.supportedLocales,
           ),
         ),
       ),
