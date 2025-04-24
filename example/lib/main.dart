@@ -1,9 +1,9 @@
 import 'package:app_chiseletor/auth/auth_wrapper.dart';
 import 'package:app_chiseletor/theme/app_initializer.dart';
 import 'package:app_chiseletor/widgets/theme_material_app.dart';
+import 'package:app_chiseletor_example/pages/demo_content.dart';
 import 'package:app_chiseletor_example/pages/homepage.dart';
 import '../l10n/app_localizations.dart';
-import 'package:app_chiseletor_example/pages/home_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
