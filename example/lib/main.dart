@@ -28,19 +28,17 @@ void main() async {
       BlueTheme(),
     ],
   );
-
   runApp(
     MultiProvider(
       providers: providers,
       child: Builder(
         builder: (context) => const ThemedMaterialApp(
-          materialApp: MaterialApp(
-            home: AuthWrapper(
-              homepage: HomePage(child: DemoContent()),
-            ),
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
+          debugShowCheckedModeBanner: false,
+          home: AuthWrapper(
+            homepage: HomePage(child: DemoContent()),
           ),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
         ),
       ),
     ),
