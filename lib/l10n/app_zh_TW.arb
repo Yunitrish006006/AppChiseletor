@@ -40,5 +40,21 @@
   "themeModeDark": "深色主題",
   "@themeModeDark": {
     "description": "深色主題模式"
+  },
+  "switchLanguage": "切換語言",
+  "@switchLanguage": {
+    "description": "語言切換按鈕的提示文字"
+  },
+  "languageEnglish": "英文",
+  "@languageEnglish": {
+    "description": "英文語言選項"
+  },
+  "languageChineseTraditional": "繁體中文",
+  "@languageChineseTraditional": {
+    "description": "繁體中文語言選項"
+  },
+  "languageChineseSimplified": "简体中文",
+  "@languageChineseSimplified": {
+    "description": "簡體中文語言選項"
   }
 }

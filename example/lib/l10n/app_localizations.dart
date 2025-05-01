@@ -233,6 +233,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Blue Theme'**
   String get themeBlue;
+
+  /// No description provided for @car.
+  ///
+  /// In en, this message translates to:
+  /// **'Car'**
+  String get car;
+
+  /// No description provided for @transit.
+  ///
+  /// In en, this message translates to:
+  /// **'Transit'**
+  String get transit;
+
+  /// No description provided for @bike.
+  ///
+  /// In en, this message translates to:
+  /// **'Bike'**
+  String get bike;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

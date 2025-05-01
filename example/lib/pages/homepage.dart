@@ -40,9 +40,9 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 color: theme.primaryColor,
               ),
-              child: const Text(
-                'Drawer Header',
-                style: TextStyle(
+              child: Text(
+                l10n.drawerHeader,
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 24,
                 ),
@@ -50,12 +50,12 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: const Icon(Icons.home),
-              title: const Text('Home'),
+              title: Text(l10n.home),
               onTap: () => Navigator.pop(context),
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
+              title: Text(l10n.settings),
               onTap: () => Navigator.pop(context),
             ),
           ],

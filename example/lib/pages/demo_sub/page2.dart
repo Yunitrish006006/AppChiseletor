@@ -1,3 +1,4 @@
+import 'package:app_chiseletor_example/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class Page2 extends StatefulWidget {
@@ -18,6 +19,8 @@ class _Page2State extends State<Page2> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Form(
@@ -26,13 +29,13 @@ class _Page2State extends State<Page2> {
           children: [
             TextFormField(
               controller: _textController,
-              decoration: const InputDecoration(
-                labelText: 'Enter your name',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                labelText: l10n.enterName,
+                border: const OutlineInputBorder(),
               ),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
+                  return l10n.pleaseEnterText;
                 }
                 return null;
               },
@@ -43,12 +46,12 @@ class _Page2State extends State<Page2> {
                 if (_formKey.currentState!.validate()) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Hello ${_textController.text}!'),
+                      content: Text(l10n.hello(_textController.text)),
                     ),
                   );
                 }
               },
-              child: const Text('Submit'),
+              child: Text(l10n.submit),
             ),
           ],
         ),

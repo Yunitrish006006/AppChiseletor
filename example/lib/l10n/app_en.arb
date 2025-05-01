@@ -64,5 +64,8 @@
   "login": "Login",
   "loginFirst": "Please login first",
   "loginWithGoogle": "Login with Google",
-  "themeBlue": "Blue Theme"
+  "themeBlue": "Blue Theme",
+  "car": "Car",
+  "transit": "Transit",
+  "bike": "Bike"
 }

@@ -1,4 +1,5 @@
 import 'package:app_chiseletor/widgets/clock.dart';
+import 'package:app_chiseletor_example/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 class Page1 extends StatefulWidget {
@@ -19,6 +20,8 @@ class _Page1State extends State<Page1> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -31,13 +34,13 @@ class _Page1State extends State<Page1> {
               child: Column(
                 children: [
                   Text(
-                    'Counter: $_counter',
+                    l10n.counter(_counter),
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: _incrementCounter,
-                    child: const Text('Increment'),
+                    child: Text(l10n.increment),
                   ),
                 ],
               ),
@@ -51,15 +54,15 @@ class _Page1State extends State<Page1> {
                 _isVisible = !_isVisible;
               });
             },
-            child: const Text('Toggle Visibility'),
+            child: Text(l10n.toggleVisibility),
           ),
           AnimatedOpacity(
             opacity: _isVisible ? 1.0 : 0.0,
             duration: const Duration(milliseconds: 500),
-            child: const Card(
+            child: Card(
               child: Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Text('This content can be hidden'),
+                padding: const EdgeInsets.all(16.0),
+                child: Text(l10n.hiddenContent),
               ),
             ),
           ),

@@ -88,6 +88,15 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get themeBlue => '蓝色主题';
+
+  @override
+  String get car => 'Car';
+
+  @override
+  String get transit => 'Transit';
+
+  @override
+  String get bike => 'Bike';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -174,4 +183,13 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get themeBlue => '藍色主題';
+
+  @override
+  String get car => '汽車';
+
+  @override
+  String get transit => '交通';
+
+  @override
+  String get bike => '自行車';
 }

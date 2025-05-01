@@ -54,7 +54,7 @@ class _GoogleLoginBlockState extends State<GoogleLoginBlock> {
                 }
               }
             },
-      child: Text(isLoggingIn ? '登入中...' : l10n.loginWithGoogle),
+      child: Text(isLoggingIn ? l10n.loggingIn : l10n.loginWithGoogle),
     );
   }
 }

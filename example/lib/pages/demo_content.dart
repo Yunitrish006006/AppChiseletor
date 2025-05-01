@@ -1,3 +1,4 @@
+import 'package:app_chiseletor_example/l10n/app_localizations.dart';
 import 'package:app_chiseletor_example/pages/demo_sub/page1.dart';
 import 'package:app_chiseletor_example/pages/demo_sub/page2.dart';
 import 'package:app_chiseletor_example/pages/demo_sub/page3.dart';
@@ -28,6 +29,8 @@ class _DemoContentState extends State<DemoContent>
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return DefaultTabController(
       length: 2,
       child: Column(
@@ -35,10 +38,12 @@ class _DemoContentState extends State<DemoContent>
           // TabBar 展示
           TabBar(
             controller: _tabController,
-            tabs: const [
-              Tab(icon: Icon(Icons.directions_car)),
-              Tab(icon: Icon(Icons.directions_transit)),
-              Tab(icon: Icon(Icons.directions_bike)),
+            tabs: [
+              Tab(icon: const Icon(Icons.directions_car), text: l10n.car),
+              Tab(
+                  icon: const Icon(Icons.directions_transit),
+                  text: l10n.transit),
+              Tab(icon: const Icon(Icons.directions_bike), text: l10n.bike),
             ],
           ),
           // TabBarView 展示

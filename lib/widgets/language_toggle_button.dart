@@ -1,3 +1,4 @@
+import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart';
 import 'package:app_chiseletor/l10n/locale_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -7,13 +8,15 @@ class LanguageToggleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, child) {
         final currentLocale = localeProvider.locale;
 
         return PopupMenuButton<String>(
           icon: const Icon(Icons.language),
-          tooltip: '切換語言',
+          tooltip: l10n.switchLanguage,
           onSelected: (String value) {
             if (value != currentLocale.toString()) {
               Locale newLocale;
@@ -36,17 +39,17 @@ class LanguageToggleButton extends StatelessWidget {
             }
           },
           itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-            const PopupMenuItem<String>(
+            PopupMenuItem<String>(
               value: 'en',
-              child: Text('English'),
+              child: Text(l10n.languageEnglish),
             ),
-            const PopupMenuItem<String>(
+            PopupMenuItem<String>(
               value: 'zh',
-              child: Text('中文'),
+              child: Text(l10n.languageChineseTraditional),
             ),
-            const PopupMenuItem<String>(
+            PopupMenuItem<String>(
               value: 'zh-CN',
-              child: Text('简体中文'),
+              child: Text(l10n.languageChineseSimplified),
             ),
           ],
         );

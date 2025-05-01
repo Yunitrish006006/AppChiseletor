@@ -221,6 +221,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Dark Theme'**
   String get themeModeDark;
+
+  /// Tooltip for language switch button
+  ///
+  /// In en, this message translates to:
+  /// **'Switch Language'**
+  String get switchLanguage;
+
+  /// English language option
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get languageEnglish;
+
+  /// Traditional Chinese language option
+  ///
+  /// In en, this message translates to:
+  /// **'Traditional Chinese'**
+  String get languageChineseTraditional;
+
+  /// Simplified Chinese language option
+  ///
+  /// In en, this message translates to:
+  /// **'Simplified Chinese'**
+  String get languageChineseSimplified;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

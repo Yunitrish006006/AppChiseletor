@@ -88,4 +88,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get themeBlue => 'Blue Theme';
+
+  @override
+  String get car => 'Car';
+
+  @override
+  String get transit => 'Transit';
+
+  @override
+  String get bike => 'Bike';
 }

@@ -40,5 +40,21 @@
   "themeModeDark": "Dark Theme",
   "@themeModeDark": {
     "description": "Dark theme mode"
+  },
+  "switchLanguage": "Switch Language",
+  "@switchLanguage": {
+    "description": "Tooltip for language switch button"
+  },
+  "languageEnglish": "English",
+  "@languageEnglish": {
+    "description": "English language option"
+  },
+  "languageChineseTraditional": "Traditional Chinese",
+  "@languageChineseTraditional": {
+    "description": "Traditional Chinese language option"
+  },
+  "languageChineseSimplified": "Simplified Chinese",
+  "@languageChineseSimplified": {
+    "description": "Simplified Chinese language option"
   }
 }

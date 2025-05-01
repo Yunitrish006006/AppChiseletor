@@ -70,6 +70,18 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get themeModeDark => '深色主题';
+
+  @override
+  String get switchLanguage => 'Switch Language';
+
+  @override
+  String get languageEnglish => 'English';
+
+  @override
+  String get languageChineseTraditional => 'Traditional Chinese';
+
+  @override
+  String get languageChineseSimplified => 'Simplified Chinese';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -138,4 +150,16 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get themeModeDark => '深色主題';
+
+  @override
+  String get switchLanguage => '切換語言';
+
+  @override
+  String get languageEnglish => '英文';
+
+  @override
+  String get languageChineseTraditional => '繁體中文';
+
+  @override
+  String get languageChineseSimplified => '简体中文';
 }
