@@ -1,3 +1,4 @@
+import 'package:app_chiseletor/widgets/clock.dart';
 import 'package:flutter/material.dart';
 
 class Page1 extends StatefulWidget {
@@ -61,6 +62,9 @@ class _Page1State extends State<Page1> {
                 child: Text('This content can be hidden'),
               ),
             ),
+          ),
+          const ClockWidget(
+            color: Colors.grey,
           ),
         ],
       ),

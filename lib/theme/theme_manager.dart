@@ -1,4 +1,4 @@
-import 'package:app_chiseletor/plugins/default_theme.dart';
+import 'package:app_chiseletor/theme/default_theme.dart';
 import 'package:flutter/material.dart';
 import 'theme_interface.dart';
 
