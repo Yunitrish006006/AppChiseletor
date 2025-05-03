@@ -17,6 +17,15 @@
   "passwordTooShort": "Password must be at least 6 characters",
   "loggingIn": "Logging in...",
 
+  "guest": "Guest",
+  "profile": "Profile",
+  "settings": "Settings",
+  "about": "About",
+  "feedback": "Feedback",
+  "help": "Help",
+  "notLoggedIn": "Not logged in",
+  "home": "Home",
+
   "themeDefault": "Default Theme",
   "@themeDefault": {
     "description": "Name of the default theme"

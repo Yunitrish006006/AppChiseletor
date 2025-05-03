@@ -67,5 +67,12 @@
   "themeBlue": "藍色主題",
   "car": "汽車",
   "transit": "交通",
-  "bike": "自行車"
+  "bike": "自行車",
+  
+  "guest": "訪客",
+  "profile": "個人資料",
+  "about": "關於",
+  "feedback": "意見反饋",
+  "help": "幫助",
+  "notLoggedIn": "尚未登入"
 }

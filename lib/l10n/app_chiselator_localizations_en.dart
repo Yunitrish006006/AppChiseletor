@@ -54,6 +54,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get loggingIn => 'Logging in...';
 
   @override
+  String get guest => 'Guest';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get notLoggedIn => 'Not logged in';
+
+  @override
+  String get home => 'Home';
+
+  @override
   String get themeDefault => 'Default Theme';
 
   @override

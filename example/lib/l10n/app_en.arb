@@ -67,5 +67,12 @@
   "themeBlue": "Blue Theme",
   "car": "Car",
   "transit": "Transit",
-  "bike": "Bike"
+  "bike": "Bike",
+  
+  "guest": "Guest",
+  "profile": "Profile",
+  "about": "About",
+  "feedback": "Feedback",
+  "help": "Help",
+  "notLoggedIn": "Not logged in"
 }

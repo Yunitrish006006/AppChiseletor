@@ -17,6 +17,15 @@
   "passwordTooShort": "密碼長度至少需要6個字符",
   "loggingIn": "登入中...",
 
+  "guest": "訪客",
+  "profile": "個人資料",
+  "settings": "設定",
+  "about": "關於",
+  "feedback": "意見反饋",
+  "help": "幫助",
+  "notLoggedIn": "尚未登入",
+  "home": "首頁",
+
   "themeDefault": "預設主題",
   "@themeDefault": {
     "description": "預設主題的名稱"

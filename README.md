@@ -2,11 +2,12 @@
 
 一個具備主題管理、身份驗證和多語言支援功能的 Flutter 應用程式框架。
 
-## 最新功能 (v1.1.5)
+## 最新功能 (v1.1.6)
 
+- **UserDrawer 元件**: 全新的可自訂抽屜導航元件，提供豐富的配置選項和內建多語言支援
+- **UserAvatar 元件**: 靈活的使用者頭像元件，支援多種顯示模式和樣式設定
+- **多用戶頭像支援**: 可以在任何地方顯示當前使用者或其他用戶的頭像和資訊
 - **改進的網路錯誤處理**: 優化 Google 登入過程中的網絡錯誤處理，自動重試連接
-- **定時器資源管理**: 修正 ClockWidget 組件中的定時器釋放問題
-- **擴充多語言支援**: 新增網絡錯誤相關的翻譯鍵值，提供更友善的錯誤提示
 
 ## 功能特色
 
@@ -25,6 +26,15 @@
 - Google 登入 (含網絡錯誤自動重試機制)
 - 身份驗證狀態保持
 - 載入狀態指示器
+
+### 使用者介面元件
+提供一系列預先設計的 UI 元件，方便開發者快速構建應用：
+
+- **UserDrawer**: 可高度自訂的導航抽屜元件
+- **UserAvatar**: 用戶頭像顯示元件
+- **ThemeToggleButton**: 主題切換按鈕
+- **LanguageToggleButton**: 語言切換按鈕
+- **AuthButton**: 身份驗證按鈕
 
 ### 多語言支援
 - 繁體中文 (zh_TW)
@@ -106,6 +116,95 @@ await authManager.signOut();
 ```dart
 final localeProvider = context.read<LocaleProvider>();
 localeProvider.setLocale(const Locale('en'));  // 切換到英文
+```
+
+## 使用 UserDrawer 和 UserAvatar
+
+### UserDrawer
+
+UserDrawer 是一個高度可自訂的導航抽屜元件，支援自動顯示用戶資訊、多種導航選項和身份驗證狀態切換。
+
+```dart
+Scaffold(
+  appBar: AppBar(title: Text('我的應用')),
+  drawer: UserDrawer(
+    // 頭像點擊事件
+    onProfileTap: () => Navigator.pushNamed(context, '/profile'),
+    
+    // 各種導航選項的事件處理
+    onHomeTap: () => Navigator.pushNamed(context, '/home'),
+    onSettingsTap: () => Navigator.pushNamed(context, '/settings'),
+    onAboutTap: () => showAboutDialog(context: context),
+    
+    // 自訂選項列表
+    additionalItems: [
+      ListTile(
+        leading: Icon(Icons.favorite),
+        title: Text('我的收藏'),
+        onTap: () => Navigator.pushNamed(context, '/favorites'),
+      ),
+    ],
+    
+    // 外觀自訂
+    headerBackgroundImage: AssetImage('assets/header_bg.jpg'),
+    avatarBackgroundColor: Colors.blue.shade100,
+    showHeader: true,
+  ),
+  body: YourAppContent(),
+)
+```
+
+### UserAvatar
+
+UserAvatar 元件可用於顯示當前用戶或指定用戶的頭像，支援多種顯示模式。
+
+```dart
+// 1. 顯示當前登入用戶的頭像
+UserAvatar(
+  useAuthManager: true,  // 自動從 AuthManager 獲取用戶資訊
+  size: 60,  // 頭像大小
+  showBorder: true,  // 顯示邊框
+)
+
+// 2. 顯示特定用戶的頭像
+UserAvatar(
+  imageUrl: otherUser.photoURL,  // 頭像圖片 URL
+  name: otherUser.displayName,   // 用戶名稱 (用於顯示首字母)
+  size: 40,
+  backgroundColor: Colors.amber,
+  showBorder: true,
+  borderColor: Colors.amber.shade900,
+)
+
+// 3. 方形頭像樣式
+UserAvatar(
+  useAuthManager: true,
+  size: 50,
+  useCircleAvatar: false,  // 使用方形而非圓形
+  borderRadius: 8,  // 方形圓角
+)
+```
+
+#### 顯示多個用戶頭像
+
+UserAvatar 也適用於列表或網格中顯示多個用戶的頭像：
+
+```dart
+ListView.builder(
+  itemCount: users.length,
+  itemBuilder: (context, index) {
+    final user = users[index];
+    return ListTile(
+      leading: UserAvatar(
+        imageUrl: user.photoURL,
+        name: user.displayName,
+        size: 40,
+      ),
+      title: Text(user.displayName),
+      subtitle: Text(user.email),
+    );
+  },
+)
 ```
 
 ## 自定義主題指南

@@ -97,4 +97,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get bike => 'Bike';
+
+  @override
+  String get guest => 'Guest';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get notLoggedIn => 'Not logged in';
 }

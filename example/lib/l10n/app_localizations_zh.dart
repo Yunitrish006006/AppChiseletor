@@ -97,6 +97,24 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get bike => 'Bike';
+
+  @override
+  String get guest => 'Guest';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get notLoggedIn => 'Not logged in';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
@@ -192,4 +210,22 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get bike => '自行車';
+
+  @override
+  String get guest => '訪客';
+
+  @override
+  String get profile => '個人資料';
+
+  @override
+  String get about => '關於';
+
+  @override
+  String get feedback => '意見反饋';
+
+  @override
+  String get help => '幫助';
+
+  @override
+  String get notLoggedIn => '尚未登入';
 }

@@ -54,6 +54,30 @@ class AppLocalizationsZh extends AppLocalizations {
   String get loggingIn => '登入中...';
 
   @override
+  String get guest => 'Guest';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get about => 'About';
+
+  @override
+  String get feedback => 'Feedback';
+
+  @override
+  String get help => 'Help';
+
+  @override
+  String get notLoggedIn => 'Not logged in';
+
+  @override
+  String get home => 'Home';
+
+  @override
   String get themeDefault => '预设主题';
 
   @override
@@ -132,6 +156,30 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get loggingIn => '登入中...';
+
+  @override
+  String get guest => '訪客';
+
+  @override
+  String get profile => '個人資料';
+
+  @override
+  String get settings => '設定';
+
+  @override
+  String get about => '關於';
+
+  @override
+  String get feedback => '意見反饋';
+
+  @override
+  String get help => '幫助';
+
+  @override
+  String get notLoggedIn => '尚未登入';
+
+  @override
+  String get home => '首頁';
 
   @override
   String get themeDefault => '預設主題';
