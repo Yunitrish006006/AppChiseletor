@@ -12,12 +12,13 @@ class ClockWidget extends StatefulWidget {
 
 class _ClockWidgetState extends State<ClockWidget> {
   late DateTime _currentTime;
+  late Timer _timer;
 
   @override
   void initState() {
     updateTime();
     super.initState();
-    Timer.periodic(const Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       updateTime();
     });
   }
@@ -26,6 +27,12 @@ class _ClockWidgetState extends State<ClockWidget> {
     setState(() {
       _currentTime = DateTime.now();
     });
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 
   @override
