@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart';
-import '../theme/theme_manager.dart';
+import '../theme/theme_manager_singleton.dart';
 
 class ThemeToggleButton extends StatelessWidget {
   const ThemeToggleButton({super.key});
@@ -20,8 +19,9 @@ class ThemeToggleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeManager = Provider.of<ThemeManager>(context);
-    final currentThemeMode = themeManager.themeMode(context);
+    // 使用單例模式獲取主題管理器實例
+    final themeManager = ThemeManagerSingleton.instance;
+    final currentThemeMode = themeManager.themeMode();
     IconData icon;
     String tooltip;
 
@@ -44,7 +44,8 @@ class ThemeToggleButton extends StatelessWidget {
       icon: Icon(icon),
       tooltip: tooltip,
       onPressed: () {
-        themeManager.toggleThemeMode(context);
+        // 使用無需 context 的 toggleThemeMode 方法
+        themeManager.toggleThemeMode();
       },
     );
   }

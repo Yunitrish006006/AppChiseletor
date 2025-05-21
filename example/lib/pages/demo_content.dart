@@ -3,8 +3,7 @@ import 'package:app_chiseletor_example/pages/demo_sub/page1.dart';
 import 'package:app_chiseletor_example/pages/demo_sub/page2.dart';
 import 'package:app_chiseletor_example/pages/demo_sub/page3.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:app_chiseletor/theme/theme_manager.dart';
+import 'package:app_chiseletor/theme/theme_manager_singleton.dart';
 
 class DemoContent extends StatefulWidget {
   const DemoContent({super.key});
@@ -16,24 +15,38 @@ class DemoContent extends StatefulWidget {
 class _DemoContentState extends State<DemoContent>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  // 直接使用單例獲取主題管理器
+  final themeManager = ThemeManagerSingleton.instance;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    // 添加監聽器，當主題變更時更新 UI
+    themeManager.addListener(_themeListener);
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    // 移除監聽器，避免內存洩漏
+    themeManager.removeListener(_themeListener);
     super.dispose();
+  }
+
+  // 主題變更監聽器
+  void _themeListener() {
+    if (mounted) {
+      setState(() {
+        // 主題已變更，更新 UI
+      });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    // 獲取主題管理器
-    final themeManager = Provider.of<ThemeManager>(context);
+    // 不需要再從 Provider 中獲取主題管理器
 
     return DefaultTabController(
       length: 2,
@@ -55,7 +68,7 @@ class _DemoContentState extends State<DemoContent>
                   children: [
                     const Text('當前主題模式: '),
                     Text(
-                      _getThemeModeText(themeManager.themeMode(context)),
+                      _getThemeModeText(themeManager.themeMode()),
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -76,8 +89,7 @@ class _DemoContentState extends State<DemoContent>
                   ),
                   child: const Text('獲取當前主題 (getCurrent)'),
                 ),
-                const SizedBox(height: 8),
-                // 獲取相反主題按鈕
+                const SizedBox(height: 8), // 獲取相反主題按鈕
                 ElevatedButton(
                   onPressed: () {
                     // 使用 getReverse 獲取相反主題
@@ -91,7 +103,17 @@ class _DemoContentState extends State<DemoContent>
                         themeManager.getReverse(context).colorScheme.onPrimary,
                   ),
                   child: const Text('獲取相反主題 (getReverse)'),
-                )
+                ),
+                const SizedBox(height: 8),
+                // 切換主題模式按鈕
+                ElevatedButton(
+                  onPressed: () {
+                    // 使用單例的 toggleThemeMode 方法
+                    themeManager.toggleThemeMode();
+                    // setState 會通過 listener 自動觸發
+                  },
+                  child: const Text('切換主題模式'),
+                ),
               ],
             ),
           ),
@@ -178,9 +200,8 @@ class _DemoContentState extends State<DemoContent>
   // 將顏色轉換為十六進制字符串
   String _colorToHex(Color color) {
     return '#${color.value.toRadixString(16).padLeft(8, '0').substring(2)}';
-  }
+  } // 獲取主題模式的文字描述
 
-  // 獲取主題模式的文字描述
   String _getThemeModeText(ThemeMode mode) {
     switch (mode) {
       case ThemeMode.system:

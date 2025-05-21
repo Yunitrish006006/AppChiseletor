@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../theme/theme_manager.dart';
+import '../theme/theme_manager_singleton.dart';
 
 class ThemeSelectionButton extends StatelessWidget {
   const ThemeSelectionButton({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final themeManager = Provider.of<ThemeManager>(context);
+    // 使用單例模式獲取主題管理器實例
+    final themeManager = ThemeManagerSingleton.instance;
 
     return Container(
       decoration: BoxDecoration(
