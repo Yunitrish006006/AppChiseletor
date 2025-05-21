@@ -39,6 +39,23 @@ class ThemeManager extends ChangeNotifier {
     return _currentTheme?.lightTheme ?? DefaultTheme().lightTheme;
   }
 
+  /// Get current theme data based on the active theme mode
+  ThemeData getCurrent(BuildContext context) {
+    if (themeMode(context) == ThemeMode.system) {
+      // For system theme, check the platform brightness
+      if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
+        return darkTheme(context);
+      } else {
+        return lightTheme(context);
+      }
+    } else if (themeMode(context) == ThemeMode.dark) {
+      return darkTheme(context);
+    } else {
+      return lightTheme(context);
+    }
+  }
+
+  /// Get the reverse of the current theme data
   ThemeData getReverse(BuildContext context) {
     if (themeMode(context) == ThemeMode.system) {
       if (MediaQuery.of(context).platformBrightness == Brightness.dark) {
