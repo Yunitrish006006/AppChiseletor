@@ -9,31 +9,27 @@ class ThemeSelectionButton extends StatelessWidget {
     // 使用單例模式獲取主題管理器實例
     final themeManager = ThemeManagerSingleton.instance;
 
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: themeManager.getReverse(context).canvasColor,
-          width: 3.0,
-        ),
-        borderRadius: BorderRadius.circular(15.0),
-      ),
-      child: PopupMenuButton<String>(
-        icon: Icon(
-          Icons.format_paint,
-          color: themeManager.getReverse(context).canvasColor,
-        ),
-        onSelected: (String themeName) {
-          themeManager.loadTheme(themeName);
-        },
-        itemBuilder: (BuildContext context) {
-          return themeManager.pluginThemes.map((theme) {
-            return PopupMenuItem<String>(
-              value: theme.name,
-              child: Text(theme.getLocalizedName(context)),
-            );
-          }).toList();
-        },
-      ),
+    // 使用AnimatedBuilder監聽主題變化，確保顏色能隨主題切換而更新
+    return AnimatedBuilder(
+      animation: themeManager,
+      builder: (context, child) {
+        return PopupMenuButton<String>(
+          icon: Icon(
+            Icons.format_paint,
+          ),
+          onSelected: (String themeName) {
+            themeManager.loadTheme(themeName);
+          },
+          itemBuilder: (BuildContext context) {
+            return themeManager.pluginThemes.map((theme) {
+              return PopupMenuItem<String>(
+                value: theme.name,
+                child: Text(theme.getLocalizedName(context)),
+              );
+            }).toList();
+          },
+        );
+      },
     );
   }
 }

@@ -21,31 +21,38 @@ class ThemeToggleButton extends StatelessWidget {
   Widget build(BuildContext context) {
     // 使用單例模式獲取主題管理器實例
     final themeManager = ThemeManagerSingleton.instance;
-    final currentThemeMode = themeManager.themeMode();
-    IconData icon;
-    String tooltip;
 
-    switch (currentThemeMode) {
-      case ThemeMode.system:
-        icon = Icons.brightness_auto;
-        tooltip = _getThemeModeName(context, ThemeMode.system);
-        break;
-      case ThemeMode.light:
-        icon = Icons.light_mode;
-        tooltip = _getThemeModeName(context, ThemeMode.light);
-        break;
-      case ThemeMode.dark:
-        icon = Icons.dark_mode;
-        tooltip = _getThemeModeName(context, ThemeMode.dark);
-        break;
-    }
+    // 使用AnimatedBuilder監聽主題變化
+    return AnimatedBuilder(
+      animation: themeManager,
+      builder: (context, child) {
+        final currentThemeMode = themeManager.themeMode();
+        IconData icon;
+        String tooltip;
 
-    return IconButton(
-      icon: Icon(icon),
-      tooltip: tooltip,
-      onPressed: () {
-        // 使用無需 context 的 toggleThemeMode 方法
-        themeManager.toggleThemeMode();
+        switch (currentThemeMode) {
+          case ThemeMode.system:
+            icon = Icons.brightness_auto;
+            tooltip = _getThemeModeName(context, ThemeMode.system);
+            break;
+          case ThemeMode.light:
+            icon = Icons.light_mode;
+            tooltip = _getThemeModeName(context, ThemeMode.light);
+            break;
+          case ThemeMode.dark:
+            icon = Icons.dark_mode;
+            tooltip = _getThemeModeName(context, ThemeMode.dark);
+            break;
+        }
+
+        return IconButton(
+          icon: Icon(icon),
+          tooltip: tooltip,
+          onPressed: () {
+            // 使用無需 context 的 toggleThemeMode 方法
+            themeManager.toggleThemeMode();
+          },
+        );
       },
     );
   }
