@@ -53,7 +53,7 @@ class UserListSample extends StatelessWidget {
           final user = users[index];
           final userName = user['name'] as String;
           final userEmail = user['email'] as String;
-          final userPhotoUrl = user['photoUrl'] as String?;
+          final userPhotoUrl = user['photoUrl'];
           final userStatus = user['status'] as String;
 
           // 根據狀態設置顏色
@@ -74,7 +74,7 @@ class UserListSample extends StatelessWidget {
                     name: userName,
                     size: 50,
                     showBorder: true,
-                    borderColor: theme.colorScheme.primary.withOpacity(0.5),
+                    borderColor: theme.colorScheme.primary.withAlpha(128),
                   ),
 
                   // 狀態指示器
