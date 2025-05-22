@@ -24,7 +24,7 @@ class _Page1State extends State<Page1> {
     final l10n = AppLocalizations.of(context)!;
     final themeManager = ThemeManagerSingleton.instance;
 
-    String _getThemeModeText(ThemeMode mode) {
+    String getThemeModeText(ThemeMode mode) {
       switch (mode) {
         case ThemeMode.system:
           return '系統模式 (${MediaQuery.of(context).platformBrightness == Brightness.dark ? '當前為深色' : '當前為淺色'})';
@@ -38,12 +38,12 @@ class _Page1State extends State<Page1> {
     // 顯示主題信息對話框
 
     // 將顏色轉換為十六進制字符串
-    String _colorToHex(Color color) {
+    String colorToHex(Color color) {
       return '#${color.value.toRadixString(16).padLeft(8, '0').substring(2)}';
     }
 
     // 構建主題顏色信息展示
-    Widget _buildThemeColorInfo(String label, Color color) {
+    Widget buildThemeColorInfo(String label, Color color) {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 4),
         child: Row(
@@ -56,7 +56,7 @@ class _Page1State extends State<Page1> {
             ),
             Expanded(
               child: Text(
-                '$label: ${_colorToHex(color)}',
+                '$label: ${colorToHex(color)}',
                 overflow: TextOverflow.ellipsis,
               ),
             ),
@@ -65,7 +65,7 @@ class _Page1State extends State<Page1> {
       );
     }
 
-    void _showThemeInfo(BuildContext context, String title, ThemeData theme) {
+    void showThemeInfo(BuildContext context, String title, ThemeData theme) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -75,10 +75,10 @@ class _Page1State extends State<Page1> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                _buildThemeColorInfo('主要顏色 (primaryColor)', theme.primaryColor),
-                _buildThemeColorInfo('背景顏色 (scaffoldBackgroundColor)',
+                buildThemeColorInfo('主要顏色 (primaryColor)', theme.primaryColor),
+                buildThemeColorInfo('背景顏色 (scaffoldBackgroundColor)',
                     theme.scaffoldBackgroundColor),
-                _buildThemeColorInfo('卡片顏色 (cardColor)', theme.cardColor),
+                buildThemeColorInfo('卡片顏色 (cardColor)', theme.cardColor),
                 Text(
                     '亮度: ${theme.brightness == Brightness.dark ? '深色' : '淺色'}'),
               ],
@@ -133,7 +133,7 @@ class _Page1State extends State<Page1> {
                   children: [
                     const Text('當前主題模式: '),
                     Text(
-                      _getThemeModeText(themeManager.themeMode()),
+                      getThemeModeText(themeManager.themeMode()),
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ],
@@ -144,7 +144,7 @@ class _Page1State extends State<Page1> {
                   onPressed: () {
                     // 使用 getCurrent 獲取當前主題
                     final currentTheme = themeManager.getCurrent(context);
-                    _showThemeInfo(context, '當前主題', currentTheme);
+                    showThemeInfo(context, '當前主題', currentTheme);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
@@ -159,7 +159,7 @@ class _Page1State extends State<Page1> {
                   onPressed: () {
                     // 使用 getReverse 獲取相反主題
                     final reverseTheme = themeManager.getReverse(context);
-                    _showThemeInfo(context, '相反主題', reverseTheme);
+                    showThemeInfo(context, '相反主題', reverseTheme);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:

@@ -2,7 +2,7 @@ import 'package:app_chiseletor/auth/auth_manager.dart';
 import 'package:app_chiseletor/auth/email_login.dart';
 import 'package:app_chiseletor/auth/google_login.dart';
 import 'package:app_chiseletor/l10n/app_chiselator_localizations.dart' as al;
-import 'package:app_chiseletor/widgets/language_toggle_button.dart';
+import 'package:app_chiseletor/widgets/language_toggle_button_singleton.dart';
 import 'package:app_chiseletor/widgets/theme_selection_button.dart';
 import 'package:app_chiseletor/widgets/theme_toggle_button.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Text(l10n.login),
         actions: const [
-          LanguageToggleButton(),
+          LanguageToggleButtonSingleton(),
           ThemeToggleButton(),
           ThemeSelectionButton(),
         ],

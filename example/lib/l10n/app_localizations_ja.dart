@@ -4,12 +4,12 @@ import 'app_localizations.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for English (`en`).
-class AppLocalizationsEn extends AppLocalizations {
-  AppLocalizationsEn([String locale = 'en']) : super(locale);
+/// The translations for Japanese (`ja`).
+class AppLocalizationsJa extends AppLocalizations {
+  AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
-  String get appTitle => 'AppChiseletor Demo';
+  String get appTitle => 'ホームページ';
 
   @override
   String get drawerHeader => 'Drawer Header';
@@ -26,7 +26,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get increment => 'Increment';
+  String get increment => '増加';
 
   @override
   String get toggleVisibility => 'Toggle Visibility';
@@ -49,19 +49,19 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get car => 'Car';
+  String get car => '車';
 
   @override
-  String get transit => 'Transit';
+  String get transit => '交通';
 
   @override
-  String get bike => 'Bike';
+  String get bike => '自転車';
 
   @override
-  String get addJapaneseLanguage => 'Add Japanese Language';
+  String get addJapaneseLanguage => '日本語を追加';
 
   @override
-  String get languageAdded => 'Language Added';
+  String get languageAdded => '言語が追加されました';
 
   @override
   String listItem(int number) {

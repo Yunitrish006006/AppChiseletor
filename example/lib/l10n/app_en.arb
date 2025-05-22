@@ -16,8 +16,7 @@
   "toggleVisibility": "Toggle Visibility",
   "hiddenContent": "This content can be hidden",
   "enterName": "Enter your name",
-  "pleaseEnterText": "Please enter some text",
-  "submit": "Submit",
+  "pleaseEnterText": "Please enter some text",  "submit": "Submit",
   "hello": "Hello {name}!",
   "@hello": {
     "placeholders": {
@@ -26,6 +25,11 @@
       }
     }
   },
+  "car": "Car",
+  "transit": "Transit",
+  "bike": "Bike",
+  "addJapaneseLanguage": "Add Japanese Language",
+  "languageAdded": "Language Added",
   "listItem": "Item {number}",
   "@listItem": {
     "placeholders": {
@@ -72,7 +76,8 @@
   "guest": "Guest",
   "profile": "Profile",
   "about": "About",
-  "feedback": "Feedback",
-  "help": "Help",
-  "notLoggedIn": "Not logged in"
+  "feedback": "Feedback",  "help": "Help",
+  "notLoggedIn": "Not logged in",
+  "addJapaneseLanguage": "Add Japanese Language",
+  "languageAdded": "Language Added"
 }

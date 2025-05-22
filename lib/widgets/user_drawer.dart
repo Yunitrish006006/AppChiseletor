@@ -74,7 +74,7 @@ class UserDrawer extends StatelessWidget {
                         avatarBackgroundColor ?? theme.colorScheme.onPrimary,
                     foregroundColor: theme.primaryColor,
                     showBorder: true,
-                    borderColor: theme.colorScheme.onPrimary.withOpacity(0.7),
+                    borderColor: theme.colorScheme.onPrimary.withAlpha(180),
                     onTap: onProfileTap,
                   ),
                 ),

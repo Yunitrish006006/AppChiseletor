@@ -49,6 +49,21 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get car => 'Car';
+
+  @override
+  String get transit => 'Transit';
+
+  @override
+  String get bike => 'Bike';
+
+  @override
+  String get addJapaneseLanguage => 'Add Japanese Language';
+
+  @override
+  String get languageAdded => 'Language Added';
+
+  @override
   String listItem(int number) {
     return '项目 $number';
   }
@@ -88,15 +103,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get themeBlue => '蓝色主题';
-
-  @override
-  String get car => 'Car';
-
-  @override
-  String get transit => 'Transit';
-
-  @override
-  String get bike => 'Bike';
 
   @override
   String get guest => 'Guest';
@@ -162,6 +168,15 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
+  String get car => '汽車';
+
+  @override
+  String get transit => '交通';
+
+  @override
+  String get bike => '自行車';
+
+  @override
   String listItem(int number) {
     return '項目 $number';
   }
@@ -201,15 +216,6 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get themeBlue => '藍色主題';
-
-  @override
-  String get car => '汽車';
-
-  @override
-  String get transit => '交通';
-
-  @override
-  String get bike => '自行車';
 
   @override
   String get guest => '訪客';

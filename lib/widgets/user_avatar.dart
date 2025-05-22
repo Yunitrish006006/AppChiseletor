@@ -26,7 +26,7 @@ class UserAvatar extends StatelessWidget {
   /// [placeholderIconData] 預設顯示的圖標
   /// [useAuthManager] 是否從 AuthManager 讀取用戶信息
   const UserAvatar({
-    Key? key,
+    super.key,
     this.size = 40,
     this.imageUrl,
     this.name,
@@ -40,7 +40,7 @@ class UserAvatar extends StatelessWidget {
     this.placeholderIconData = Icons.person,
     this.useAuthManager = false,
     this.onTap,
-  }) : super(key: key);
+  });
 
   final double size;
   final String? imageUrl;

@@ -30,10 +30,10 @@ void main() async {
       BlueTheme(),
     ],
   );
-
   // 使用新的單例版本的 AppInitializer
   final providers = await AppInitializerSingleton.initialize(
     defaultLocale: const Locale('zh', 'TW'),
+    externalSupportedLocales: AppLocalizations.supportedLocales,
   );
 
   runApp(
