@@ -54,28 +54,28 @@ class AppLocalizationsZh extends AppLocalizations {
   String get loggingIn => '登入中...';
 
   @override
-  String get guest => 'Guest';
+  String get guest => '访客';
 
   @override
-  String get profile => 'Profile';
+  String get profile => '个人资料';
 
   @override
-  String get settings => 'Settings';
+  String get settings => '设置';
 
   @override
-  String get about => 'About';
+  String get about => '关于';
 
   @override
-  String get feedback => 'Feedback';
+  String get feedback => '反馈';
 
   @override
-  String get help => 'Help';
+  String get help => '帮助';
 
   @override
-  String get notLoggedIn => 'Not logged in';
+  String get notLoggedIn => '未登录';
 
   @override
-  String get home => 'Home';
+  String get home => '主页';
 
   @override
   String get themeDefault => '预设主题';
@@ -96,16 +96,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get themeModeDark => '深色主题';
 
   @override
-  String get switchLanguage => 'Switch Language';
+  String get switchLanguage => '切换语言';
 
   @override
-  String get languageEnglish => 'English';
+  String get languageEnglish => '英语';
 
   @override
-  String get languageChineseTraditional => 'Traditional Chinese';
+  String get languageChineseTraditional => '繁体中文';
 
   @override
-  String get languageChineseSimplified => 'Simplified Chinese';
+  String get languageChineseSimplified => '简体中文';
 }
 
 /// The translations for Chinese, as used in Taiwan (`zh_TW`).
