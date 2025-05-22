@@ -18,27 +18,21 @@
   "loggingIn": "登入中...",
 
   "themeDefault": "预设主题",
-  "@themeDefault": {
-    "description": "预设主题的名称"
-  },
   "themeGray": "灰色主题",
-  "@themeGray": {
-    "description": "灰色主题的名称"
-  },
   "themeCustom": "自定义主题",
-  "@themeCustom": {
-    "description": "自定义主题的名称"
-  },
   "themeModeSystem": "系统主题",
-  "@themeModeSystem": {
-    "description": "系统主题模式"
-  },
   "themeModeLight": "浅色主题",
-  "@themeModeLight": {
-    "description": "浅色主题模式"
-  },
   "themeModeDark": "深色主题",
-  "@themeModeDark": {
-    "description": "深色主题模式"
-  }
+  "guest": "访客",
+  "profile": "个人资料",
+  "settings": "设置",
+  "about": "关于",
+  "feedback": "反馈",
+  "help": "帮助",
+  "notLoggedIn": "未登录",
+  "home": "主页",
+  "switchLanguage": "切换语言",
+  "languageEnglish": "英语",
+  "languageChineseTraditional": "繁体中文",
+  "languageChineseSimplified": "简体中文"
 }
