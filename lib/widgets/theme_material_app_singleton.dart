@@ -3,7 +3,6 @@ import 'package:app_chiseletor/l10n/locale_provider_singleton.dart';
 import 'package:app_chiseletor/theme/theme_manager_singleton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:provider/provider.dart';
 
 /// 使用單例模式的主題管理器的 MaterialApp
 class ThemedMaterialAppSingleton extends StatelessWidget {

@@ -5,7 +5,6 @@ import 'package:app_chiseletor_example/pages/demo_sub/page3.dart';
 import 'package:flutter/material.dart';
 import 'package:app_chiseletor/theme/theme_manager_singleton.dart';
 import 'package:app_chiseletor/l10n/locale_provider_singleton.dart';
-import 'package:app_chiseletor/config/app_chiselator_config.dart';
 
 class DemoContent extends StatefulWidget {
   const DemoContent({super.key});

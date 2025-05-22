@@ -1,5 +1,4 @@
 import 'package:app_chiseletor/widgets/user_avatar.dart';
-import 'package:app_chiseletor_example/l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 /// 範例頁面：展示如何使用 UserAvatar 顯示多個不同用戶的頭像
